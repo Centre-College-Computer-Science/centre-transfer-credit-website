@@ -12,6 +12,7 @@ import Papa from "papaparse";
 import fileCSV from "./Non-Catalog.csv";
 import Forms from "./Forms";
 import InstitutionTable from "./InstitutionTable";
+import CourseTable from "./CourseTable";
 
 export default function App() {
   //let courses = props.courses;
@@ -25,7 +26,7 @@ export default function App() {
   // need to parse out improperly spaced dashes oops lol
   function makeTitleCase(string) {
     const words = string.split(/[\s+]/);
-    new_words = words.map((word) => {
+    let new_words = words.map((word) => {
       if (word != "of") {
         return word.slice(0, 1).toUpperCase() + word.slice(1).toLowerCase();
       } else {
@@ -147,7 +148,9 @@ export default function App() {
           universities. If your original credit was given by a traditional
           college or university, please see the transfer credit page.
         </p>
-        <div class="container2">
+        
+        <div>
+        
           <BrowserRouter>
             <Routes>
               <Route path="/" element={<Layout />}>
@@ -159,7 +162,9 @@ export default function App() {
               </Route>
             </Routes>
           </BrowserRouter>
+          
         </div>
+        
       </div>
     </LevelContext.Provider>
   );

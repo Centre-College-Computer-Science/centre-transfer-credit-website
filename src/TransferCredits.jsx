@@ -14,15 +14,36 @@ export default function TransferCredits() {
 
   const [showList, setShowList] = useState(false);
   const onClick = () => setShowList((showList) => !showList);
+  let selectedList = context.selectedList;
 
+
+// Loops through the selectedList and adds up all the course credit totals
+  const creditTotal = ( function (){
+    let total = 0;
+
+
+    for(var i = 0; i < selectedList.length; i++){
+      total += Number(selectedList[i].centre_course_credits);
+    }
+
+
+    return total; } ) ();
   return (
-    <div class="full">
+    
+    <div>
+     
       <div class="sticky">
         <button class="button course_button" onClick={onClick}>
           <div>
-            <div class="button course_button_text">Saved Courses</div>
-
+            <div class="button course_button_text">Saved Courses </div>
+            
             <div class="button course_button_icon">
+              <table class = "course_button_info">
+                <tr class = "standard">
+                  <td >
+              <p><b>{creditTotal == 0 ? null : creditTotal}</b></p>
+              </td>
+              <td >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
@@ -31,6 +52,9 @@ export default function TransferCredits() {
               >
                 <path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z" />
               </svg>
+              </td>
+              </tr>
+              </table>
             </div>
           </div>
         </button>
