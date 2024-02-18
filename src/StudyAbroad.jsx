@@ -1,6 +1,6 @@
 export default function StudyAbroad() {
   return (
-    <div className="App">
+    <div className="App" data-testid = "study-abroad">
       <div class="container">
         <div class="container">
           <h2>Study Abroad Transfer Credit Policy</h2>
