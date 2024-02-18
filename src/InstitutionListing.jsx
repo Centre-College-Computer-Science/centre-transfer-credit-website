@@ -3,7 +3,7 @@ import { LevelContext } from "./LevelContext";
 
 export default function InstitutionListing(props) {
   let institution = props.institution;
-  let context = useContext(LevelContext);
+  let context = useContext(LevelContext)
   let setCurrentInstitution = context.setCurrentInstitution;
   return (
     <tr id={institution}>
