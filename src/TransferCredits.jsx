@@ -5,6 +5,7 @@ import { LevelContext } from "./LevelContext";
 import CourseTable from "./CourseTable";
 import InstitutionTable from "./InstitutionTable";
 import InstitutionSearch from "./InstitutionSearch";
+import CourseRequestForm from "./CourseRequestForm";
 
 export default function TransferCredits() {
   let context = useContext(LevelContext);
@@ -94,16 +95,11 @@ export default function TransferCredits() {
               <div class="container2">
                 <h2> Don't See Your Course Here? </h2>
                 <p>
-                  If you have a Centre College Login, please follow the
-                  following link to request a transfer credit.
+                  Fill out the form below to request transfer credit for it!
                 </p>
               </div>
               <div class="container2">
-                <form action="https://centrenet.centre.edu/ICS/">
-                  <button class="button standard_button" type="submit">
-                    Credit Request Form
-                  </button>
-                </form>
+                <CourseRequestForm />
               </div>
             </div>
           </>
