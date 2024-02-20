@@ -32,14 +32,15 @@ export default function TransferCredits() {
     
     <div>
      
-      <div class="sticky">
-        <button class="button course_button" onClick={onClick}>
+      <div className="sticky">
+        <button className="button course_button" onClick={onClick}>
           <div>
-            <div class="button course_button_text">Saved Courses </div>
+            <div className="button course_button_text">Saved Courses </div>
             
-            <div class="button course_button_icon">
+            <div className="button course_button_icon">
               <table class = "course_button_info">
-                <tr class = "standard">
+                <tbody>
+                <tr className = "standard">
                   <td >
               <p><b>{creditTotal == 0 ? null : creditTotal}</b></p>
               </td>
@@ -54,11 +55,12 @@ export default function TransferCredits() {
               </svg>
               </td>
               </tr>
+              </tbody>
               </table>
             </div>
           </div>
         </button>
-        <div class="scrollable_table">
+        <div className="scrollable_table">
           {showList ? <CourseTable isSelected={true} /> : null}
         </div>
       </div>
@@ -66,9 +68,9 @@ export default function TransferCredits() {
       <div>
         {currentInstitution ? (
           <>
-            <div class="container2">
+            <div className="container2">
               <button
-                class="button standard_button"
+                className="button standard_button"
                 type="button"
                 onClick={() => setCurrentInstitution("")}
               >
@@ -83,7 +85,7 @@ export default function TransferCredits() {
                 Course Summary so you can see your progress as you go, or add
                 courses from multiple institutions.
               </p>
-              <div class="scrollable_table">
+              <div className="scrollable_table">
                 <CourseTable
                   // courses={courseList.filter(
                   //   (course) => course.rewarding_institution == currentInstitution
@@ -91,16 +93,16 @@ export default function TransferCredits() {
                   isSelected={false}
                 />
               </div>
-              <div class="container2">
+              <div className="container2">
                 <h2> Don't See Your Course Here? </h2>
                 <p>
                   If you have a Centre College Login, please follow the
                   following link to request a transfer credit.
                 </p>
               </div>
-              <div class="container2">
+              <div className="container2">
                 <form action="https://centrenet.centre.edu/ICS/">
-                  <button class="button standard_button" type="submit">
+                  <button className="button standard_button" type="submit">
                     Credit Request Form
                   </button>
                 </form>
@@ -114,11 +116,6 @@ export default function TransferCredits() {
             <InstitutionTable />
           </>
         )}
-
-        {/* <td>
-              <h2 className="centered"> Saved Courses </h2>
-              <CourseTable isSelected={true} />
-            </td> */}
       </div>
     </div>
   );
