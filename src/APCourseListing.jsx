@@ -1,3 +1,5 @@
+//organizes table information about AP credits and applies it to a course variable
+
 export default function APCourseListing(props) {
   let course = props.details;
 

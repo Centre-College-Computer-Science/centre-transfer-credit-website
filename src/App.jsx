@@ -4,26 +4,21 @@ import { useContext, useEffect, useState, useRef } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { LevelContext } from "./LevelContext";
 import Layout from "./Layout";
-import Home from "./Home";
 import TransferCredits from "./TransferCredits";
 import APCredits from "./APCredits";
 import StudyAbroad from "./StudyAbroad";
 import Papa from "papaparse";
 import fileCSV from "./Non-Catalog.csv";
-import Forms from "./Forms";
 import InstitutionTable from "./InstitutionTable";
 import CourseTable from "./CourseTable";
 
 export default function App() {
-  //let courses = props.courses;
-  //let selectedCourses = props.selectedCourses;
-  //let institutions = props.institutions;
 
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  // converting names to title case (why are they not already??)
-  // need to parse out improperly spaced dashes oops lol
+  // converting names to title case 
+  // parse out improperly spaced dashes oops lol
   function makeTitleCase(string) {
     const words = string.split(/[\s+]/);
     let new_words = words.map((word) => {
@@ -42,9 +37,8 @@ export default function App() {
 
   const [searchTerm, setSearchTerm] = useState(""); // for use in filtering institution table
 
-  // tally of times i've had to reload data: 10
-  // weird bug - sometimes when I break things this doesn't run on entering TransferCredits. needs work
-  // empty dependency array probably overkill. we want to fetch data when the component loads, but for some reason it isn't firing all the time? weird
+ //use effect to pull the CSV file, handle errors if it is not found, and parse the information 
+ //into usable information for the instititutions and course list
   useEffect(() => {
     fetch(fileCSV)
       .then((response) => {
@@ -62,9 +56,7 @@ export default function App() {
             setData(file);
             //WHy empty
             console.log(data);
-            //Change this to Data to FILE KHASFKJSHF
-            //I really dont know why the fudge I need change this but it works?
-            //Im just confusec as heck also ;-;
+            //Change this to Data to FILE 
             let courses = file.map((course) => {
               return {
                 rewarding_institution: makeTitleCase(
@@ -74,7 +66,6 @@ export default function App() {
                 ri_courseTitle: course["Non-Catalog Course Title"].trim(),
                 centre_courseTitle: course["Course Work Course Title"],
                 course_workNumber: course["Course Work Number"],
-                //centre_course_code: course["Course Work Catalog Code"], //?
                 // clean up below to be consistent with camelcase
                 centre_course_credits: course["Course Work Credit Hours"],
                 checked: false,
@@ -93,6 +84,7 @@ export default function App() {
           },
         });
       })
+      // catch errors and log them 
       .catch((err) => {
         console.log(err.message);
       });
@@ -102,6 +94,7 @@ export default function App() {
     setSelectedList(courseList.filter((course) => course.checked));
   }, [courseList]);
 
+//toggle function to go to page with more information on the courses
   function toggleSelected(target, checked_state) {
     // console.log(target, checked_state);
     setCourseList((existingCourseList) =>
@@ -114,15 +107,8 @@ export default function App() {
       })
     );
   }
-  /* unnecessary, oops */
-  // function toggleInstitutionTable(institution_name) {
-  //   setCurrentInstitution(institution_name);
-  // }
-
-  // function updateSearchTerm(search_term) {
-  //   setSearchTerm(search_term);
-  // }
-
+ 
+  //setting all variables into context
   const context = {
     institutions: institutions,
     setInstitutions: setInstitutions,
@@ -135,36 +121,30 @@ export default function App() {
     searchTerm: searchTerm,
     setSearchTerm: setSearchTerm,
     toggleSelected: toggleSelected,
-    // toggleInstitutionTable: toggleInstitutionTable,
-    // updateSearchTerm: updateSearchTerm
   };
 
+  //returns the overall page
   return (
     <LevelContext.Provider value={context}>
-      <div class="container">
+      {/*container div ensures column-oriented formatting for the page */}
+      <div className="container">
         <h1>Centre College Transfer Policy</h1>
         <p>
           Please use this website to verify which courses transfer accros
           universities. If your original credit was given by a traditional
           college or university, please see the transfer credit page.
         </p>
-        
-        <div>
-        
+          {/*Calls the Layout function to display the navigation bar and the pages it contains.
+           Sets the index as the Transfer Credits and routes to the two other pages.*/}
           <BrowserRouter>
             <Routes>
               <Route path="/" element={<Layout />}>
-                {/* <Route index element={<Home />} /> */}
                 <Route index element={<TransferCredits />} />
                 <Route path="APCredits" element={<APCredits />} />
                 <Route path="StudyAbroad" element={<StudyAbroad />} />
-                {/* <Route path="Forms" element={<Forms />} /> */}
               </Route>
             </Routes>
           </BrowserRouter>
-          
-        </div>
-        
       </div>
     </LevelContext.Provider>
   );

@@ -1,6 +1,7 @@
 import { Outlet, Link } from "react-router-dom";
 import styled from "styled-components";
 
+//regulates styling for the navigation bar 
 const StyledLink = styled(Link)`
   text-align: center;
   font-family: "Roboto", sans-serif;
@@ -12,15 +13,14 @@ const StyledLink = styled(Link)`
   margin: auto;
 `;
 
+//JS implementation of the navigation bar
 export default function Layout() {
   return (
     <>
       <div>
+        {/* html for the navigation bar, makes sure the default page is transfer credits */}
         <nav>
-          <ul class="navigation">
-            {/* <li>
-              <StyledLink to="/">Home</StyledLink>
-            </li> */}
+          <ul className="navigation">
             <li>
               <StyledLink to="/">Transfer Credits</StyledLink>
             </li>
@@ -30,9 +30,6 @@ export default function Layout() {
             <li>
               <StyledLink to="/StudyAbroad">Study Abroad</StyledLink>
             </li>
-            {/* <li>
-              <StyledLink to="/Forms">Forms</StyledLink>
-  </li> */}
           </ul>
         </nav>
       </div>
