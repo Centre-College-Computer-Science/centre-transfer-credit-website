@@ -35,6 +35,8 @@ export default function App() {
     });
     return new_words.join(" ");
   }
+
+  // Part of the Level Context
   const [institutions, setInstitutions] = useState([]);
   const [courseList, setCourseList] = useState([]);
   const [selectedList, setSelectedList] = useState([]);

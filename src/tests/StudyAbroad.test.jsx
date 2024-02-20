@@ -8,6 +8,8 @@ describe('StudyAbroad Component', () => {
 
   it('should be in the document', () => {
     expect(screen.getByTestId('study-abroad')).toBeInTheDocument();
+    expect(screen.getByTestId('study-abroad')).toBeVisible();
+
   });
 
   // Example using accessible roles instead of class names where possible
