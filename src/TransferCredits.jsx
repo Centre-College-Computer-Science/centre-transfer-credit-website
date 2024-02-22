@@ -39,10 +39,10 @@ export default function TransferCredits() {
             <div className="button course_button_text">Saved Courses </div>
             
             <div className="button course_button_icon">
-              <table class = "course_button_info">
+              <table className = "course_button_info">
                 <tbody>
                 <tr className = "standard">
-                  <td >
+                  <td>
               <p><b>{creditTotal == 0 ? null : creditTotal}</b></p>
               </td>
               <td >
@@ -94,15 +94,12 @@ export default function TransferCredits() {
                   isSelected={false}
                 />
               </div>
-              <div className="container2">
+             
                 <h2> Don't See Your Course Here? </h2>
                 <p>
                   Fill out the form below to request transfer credit for it!
                 </p>
-              </div>
-              <div class="container2">
                 <CourseRequestForm />
-              </div>
             </div>
           </>
         ) : (

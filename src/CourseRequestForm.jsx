@@ -38,7 +38,7 @@ export default function CourseRequestForm(props) {
     return (
         <form onSubmit={handleSubmit}>
             <label>
-                Enter name of course to transfer in:
+                Enter name of course to transfer in:  
                 <input 
                     type = "text"
                     value = {externalCourse}
@@ -46,15 +46,16 @@ export default function CourseRequestForm(props) {
                 />
             </label>
             <label>
-                Upload syllabus:
+                Upload syllabus:  
                 <input 
                     type = "file"
                     onChange = {handleFile}
                 />
             </label>
             <label>
-                Choose department the course would belong under:
+                Choose department the course would belong under: 
                 <select 
+                    type = ""
                     value = {department}
                     onChange = {(e) => setDepartment(e.target.value)}
                 >
@@ -109,7 +110,7 @@ export default function CourseRequestForm(props) {
                     <option value="WEL">WEL</option>
                 </select>
             </label>
-            <input type="submit" value="submit"/>
+            <input type="submit" value="Submit Request"/>
         </form>
     );
 }

@@ -6,18 +6,19 @@ export default function InstitutionSearch() {
   let searchTerm = context.searchTerm;
   let setSearchTerm = context.setSearchTerm;
   return (
+ 
+    
     <form id="school-search">
-      <label /*htmlFor="institution-name"*/>Enter college name: </label>
+      <label /*htmlFor="institution-name"*/>Enter college name: 
       <input
         type="text"
         id="institution-name"
         name="institution-name"
-        placeholder="Centre College, Danville KY"
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
-      />
-      {/* <button type="submit">Search</button> */}
-      {/* <button type="reset">Reset</button> */}
+      /></label>
+      
     </form>
+   
   );
 }
