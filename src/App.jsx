@@ -118,14 +118,6 @@ export default function App() {
       })
     );
   }
-  /* unnecessary, oops */
-  // function toggleInstitutionTable(institution_name) {
-  //   setCurrentInstitution(institution_name);
-  // }
-
-  // function updateSearchTerm(search_term) {
-  //   setSearchTerm(search_term);
-  // }
 
   const context = {
     institutions: institutions,
