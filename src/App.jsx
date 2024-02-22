@@ -39,8 +39,10 @@ export default function App() {
 
   const [searchTerm, setSearchTerm] = useState(""); // for use in filtering institution table
 
- //use effect to pull the CSV file, handle errors if it is not found, and parse the information 
- //into usable information for the instititutions and course list
+  // It takes the csv file and parses it into a JSON object
+  // tally of times i've had to reload data: 10
+  // weird bug - sometimes when I break things this doesn't run on entering TransferCredits. needs work
+  // empty dependency array probably overkill. we want to fetch data when the component loads, but for some reason it isn't firing all the time? weird
   useEffect(() => {
     fetch(fileCSV)
       .then((response) => {
@@ -50,6 +52,7 @@ export default function App() {
         return response.text();
       })
       .then((actualData) => {
+        //Convert the CSV to JSON and into a 2d array
         Papa.parse(actualData, {
           //taking first line as header from csv
           header: true,
@@ -109,8 +112,7 @@ export default function App() {
       })
     );
   }
- 
-  //setting all variables into context
+
   const context = {
     institutions: institutions,
     setInstitutions: setInstitutions,
