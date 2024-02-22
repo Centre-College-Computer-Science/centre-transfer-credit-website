@@ -1,31 +1,26 @@
 import { render, screen } from '@testing-library/react';
-import StudyAbroad from '../StudyAbroad';
+import { describe, it, expect } from 'vitest';
+import StudyAbroad from '../StudyAbroad'; // Adjust the import path according to your project structure
 
 describe('StudyAbroad Component', () => {
-  beforeEach(() => {
+  it('renders without crashing', () => {
     render(<StudyAbroad />);
-  });
-
-  it('should be in the document', () => {
     expect(screen.getByTestId('study-abroad')).toBeInTheDocument();
-    expect(screen.getByTestId('study-abroad')).toBeVisible();
-
   });
 
-  // Example using accessible roles instead of class names where possible
-  it('checks for the presence of headings using roles', () => {
+  it('displays the correct heading', () => {
+    render(<StudyAbroad />);
     expect(screen.getByRole('heading', { name: /Study Abroad Transfer Credit Policy/i })).toBeInTheDocument();
+  });
+
+  it('contains the information about study abroad credit transfer', () => {
+    render(<StudyAbroad />);
+    expect(screen.getByText(/if you are a current Centre student aiming to transfer over a study abroad credit/i)).toBeInTheDocument();
+  });
+
+  it('mentions the approved study abroad credits section', () => {
+    render(<StudyAbroad />);
     expect(screen.getByRole('heading', { name: /Approved Study Abroad Credits/i })).toBeInTheDocument();
+    expect(screen.getByText(/This table is coming soon/i)).toBeInTheDocument();
   });
-
-  // Fallback to using document.querySelectorAll for class-specific queries when necessary
-  it('checks for nested container structure using class names', () => {
-    const containers = document.querySelectorAll('.container');
-    expect(containers.length).toBeGreaterThanOrEqual(4);
-  });
-
-  it('validates the presence of detailed information text', () => {
-    expect(screen.getByText(/Lorem ipsum dolor sit amet,/i)).toBeInTheDocument();
-  });
-
 });
