@@ -20,7 +20,7 @@ export default function CourseTable(props) {
   }
 
   return (
-    <table className="course-table">
+    <table data-testid= "course-table" className="course-table">
       <thead>
         <tr>
           <th>Rewarding Institution</th>
