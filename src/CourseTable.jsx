@@ -11,6 +11,10 @@ export default function CourseTable(props) {
 
   let isSelected = props.isSelected;
   let specificCourses;
+
+  // Depending on if the isSelected prop is true or false, either displays
+  // a list of courses from the courseList filtered by the currently selected
+  // institution, or the courses saved in the selectedList
   if (!isSelected) {
     specificCourses = courseList.filter(
       (course) => course.rewarding_institution === currentInstitution
@@ -31,6 +35,7 @@ export default function CourseTable(props) {
         </tr>
       </thead>
       <tbody id="courses-list">
+        {/* Map the data from the course listing into the appropriate cell into the table */}
         {specificCourses.map((course) => (
           <CourseListing key={course.course_workNumber} details={course} />
         ))}

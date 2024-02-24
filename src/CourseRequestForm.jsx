@@ -9,7 +9,8 @@ export default function CourseRequestForm(props) {
     const [department, setDepartment] = useState("AAS");
 
     const handleSubmit = (e) => {
-        // Prevent the page from being reset
+        // Prevent the whole page from being reset (and thus kicking 
+        // the user out of the instituion they've selected
         e.preventDefault();
 
         console.log("External course: ", externalCourse);
@@ -35,8 +36,11 @@ export default function CourseRequestForm(props) {
         }
       };    
 
+    // Creates a form with three fields (course name: text, course syllabus: file, potential department: select)
+    // and a submit button
     return (
         <form onSubmit={handleSubmit}>
+            {/* Course name */}
             <label>
                 Enter name of course to transfer in:  
                 <input 
@@ -45,6 +49,7 @@ export default function CourseRequestForm(props) {
                     onChange = {(e) => setExternalCourse(e.target.value)}
                 />
             </label>
+            {/* Course syllabus upload */}
             <label>
                 Upload syllabus:  
                 <input 
@@ -52,10 +57,10 @@ export default function CourseRequestForm(props) {
                     onChange = {handleFile}
                 />
             </label>
+            {/* Potential department select (defaults to AAS, as defined in the department useState above) */}
             <label>
                 Choose department the course would belong under: 
                 <select 
-                    type = ""
                     value = {department}
                     onChange = {(e) => setDepartment(e.target.value)}
                 >
@@ -110,6 +115,7 @@ export default function CourseRequestForm(props) {
                     <option value="WEL">WEL</option>
                 </select>
             </label>
+            {/* Submit */}
             <input type="submit" value="Submit Request"/>
         </form>
     );
