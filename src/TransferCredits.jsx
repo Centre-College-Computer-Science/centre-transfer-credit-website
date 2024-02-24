@@ -77,7 +77,6 @@ export default function TransferCredits() {
               >
                 Back
               </button>
-
               <h2> {currentInstitution} Courses </h2>
 
               <p>
@@ -96,7 +95,6 @@ export default function TransferCredits() {
                   isSelected={false}
                 />
               </div>
-              
                 <h2> Don't See Your Course Here? </h2>
                 <p>
                   Fill out the form below to request transfer credit for it!
