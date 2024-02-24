@@ -93,15 +93,17 @@ export default function TransferCredits() {
                 Course Summary so you can see your progress as you go, or add
                 courses from multiple institutions.
               </p>
+              <div className="container2">
               <div className="scrollable_table">
                 <CourseTable isSelected={false} />
               </div>
-             
                 <h2> Don't See Your Course Here? </h2>
                 <p>
                   Fill out the form below to request transfer credit for it!
                 </p>
+                <div className = "container2">
                 <CourseRequestForm />
+                </div>
             </div>
           </>
         ) : (
