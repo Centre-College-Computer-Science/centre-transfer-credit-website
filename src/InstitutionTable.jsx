@@ -27,14 +27,14 @@ export default function InstitutionTable(props) {
               )
               .map((institution) => (
                 <InstitutionListing
-                  key={crypto.randomUUID()} // want to make this ri_code, no idea how to yet (Update 02/24/24: Not sure what Michael meant by this - Jackson Arnold)
+                  key={crypto.randomUUID()} // Would prefer to use a rewarding institution code, if it ever got included into the dataset
                   institution={institution}
                 />
               ))
           // Full table
           : institutions.map((institution) => (
               <InstitutionListing
-                key={crypto.randomUUID()} // want to make this ri_code, no idea how to yet (Update 02/24/24: Not sure what Michael meant by this - Jackson Arnold)
+                key={crypto.randomUUID()}
                 institution={institution}
               />
             ))}
