@@ -7,7 +7,7 @@ export default function InstitutionListing(props) {
   let setCurrentInstitution = context.setCurrentInstitution;
   return (
     <tr id={institution}>
-      <td class="name-field" onClick={() => setCurrentInstitution(institution)}>
+      <td className="name-field" onClick={() => setCurrentInstitution(institution)}>
         {institution}
       </td>
     </tr>

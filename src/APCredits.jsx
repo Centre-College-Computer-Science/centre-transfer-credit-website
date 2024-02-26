@@ -1,5 +1,6 @@
 import APCourseListing from "./APCourseListing.jsx";
 
+//list of the information included in the AP Credits table
 export default function APCredits() {
   const APCourses = [
     { test: "American History", equivalency: "elective", credits: 3 },
@@ -87,12 +88,9 @@ export default function APCredits() {
     { test: "Statistics", equivalency: "MAT 130", credits: 3 },
     { test: "World History***", equivalency: "elective", credits: 3 },
   ];
-
+//returns the table and html for the entirety of the AP Credit Page
   return (
     <div className="App">
-      <div>
-        <br></br>
-
         <h2>Advanced Placement (AP) Credit Policy</h2>
         <p>
           Our approved credits for transfering AP credits is highly selective,
@@ -104,7 +102,8 @@ export default function APCredits() {
           Grades of 4 and 5 are awarded credit accordingly (and grades of 3 in
           foreign languages*).
         </p>
-        <div class="scrollable_table">
+        {/* div ensures that the table itself is scrollable in screen widths smaller than 550px */}
+        <div className="scrollable_table">
           <table>
             <thead>
               <tr>
@@ -114,6 +113,7 @@ export default function APCredits() {
               </tr>
             </thead>
             <tbody id="courses-list">
+              {/*map for the table of AP Credits */}
               {APCourses.map((course) => (
                 <APCourseListing details={course} />
               ))}
@@ -127,7 +127,6 @@ export default function APCredits() {
           receive 3 hours of credit equivalent to MAT 165.
         </p>
         <p> ***Credit not given for both world history and European history.</p>
-      </div>
     </div>
   );
 }
