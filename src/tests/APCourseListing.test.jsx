@@ -2,6 +2,7 @@ import { describe, it, expect } from "vitest";
 import * as React from "react";
 import { render, screen } from "@testing-library/react";
 import APCourseListing from "../APCourseListing";
+//import { defineConfig } from 'vitest/config'
 
 describe("APCourseListing component", () => {
   //creating fake course prop

@@ -2,6 +2,7 @@ import { describe, it, expect, vi, beforeEach } from "vitest";
 import { render, screen } from "@testing-library/react";
 import { LevelContext } from "../LevelContext";
 import CourseTable from "../CourseTable";
+import { fireEvent } from "@testing-library/react";
 
 // Mock the CourseListing component since its internal implementation is not the focus
 vi.mock("../CourseListing", () => {
