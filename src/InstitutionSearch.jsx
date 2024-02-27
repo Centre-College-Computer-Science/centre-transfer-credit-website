@@ -16,9 +16,11 @@ export default function InstitutionSearch() {
           id="institution-name"
           name="institution-name"
           value={searchTerm}
+          placeholder="Search courses..."
           onChange={(e) => setSearchTerm(e.target.value)}
         />
       </label>
+
     </form>
    
   );

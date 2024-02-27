@@ -3,7 +3,7 @@ import { LevelContext } from "./LevelContext";
 
 export default function InstitutionListing(props) {
   let institution = props.institution;
-  let context = useContext(LevelContext);
+  let context = useContext(LevelContext)
   let setCurrentInstitution = context.setCurrentInstitution;
 
   // Returns a table row with a link for an institution. On click of that link,

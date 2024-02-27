@@ -3,7 +3,7 @@ export default function StudyAbroad() {
     // information on the study abroad credits. Currently just one text, and will re-examine
     //if more dynamic or adjustable information is needed.
     <div className="App">
-      <div className="container">
+      <div className="container" data-testid = "study-abroad">
           <h2>Study Abroad Transfer Credit Policy</h2>
           <p>
             If you are a current Centre student aiming to transfer over a study
