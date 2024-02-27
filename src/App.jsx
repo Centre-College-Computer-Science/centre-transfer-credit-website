@@ -130,7 +130,7 @@ export default function App() {
       <div className="container">
         <h1>Centre College Transfer Policy</h1>
         <p>
-          Please use this website to verify which courses transfer accros
+          Please use this website to verify which courses transfer across
           universities. If your original credit was given by a traditional
           college or university, please see the transfer credit page.
         </p>
