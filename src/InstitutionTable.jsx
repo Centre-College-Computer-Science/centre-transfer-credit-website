@@ -16,21 +16,25 @@ export default function InstitutionTable(props) {
         </tr>
       </thead>
 
+      {/* If searchTerm is not empty, filter for only institutions that match the searchTerm.
+          Otherwise, dislay the full table */}
       <tbody>
-        {searchTerm // oh my god this is ugly. OK so if searchTerm is not empty filter for only institutions that match; otherwise display full table?
+        {searchTerm
+          // Search filtered table
           ? institutions
               .filter((institution) =>
                 institution.toLowerCase().includes(searchTerm.toLowerCase())
               )
               .map((institution) => (
                 <InstitutionListing
-                  key={crypto.randomUUID()} // want to make this ri_code, no idea how to yet
+                  key={crypto.randomUUID()} // Would prefer to use a rewarding institution code, if it ever got included into the dataset
                   institution={institution}
                 />
               ))
+          // Full table
           : institutions.map((institution) => (
               <InstitutionListing
-                key={crypto.randomUUID()} // want to make this ri_code, no idea how to yet
+                key={crypto.randomUUID()}
                 institution={institution}
               />
             ))}

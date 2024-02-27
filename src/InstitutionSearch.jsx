@@ -5,20 +5,22 @@ export default function InstitutionSearch() {
   let context = useContext(LevelContext);
   let searchTerm = context.searchTerm;
   let setSearchTerm = context.setSearchTerm;
+
+  // Returns a text input field that changes the searchTerm
+  // in the context on change
   return (
- 
-    
     <form id="school-search">
-      <label /*htmlFor="institution-name"*/>Enter college name: 
-      <input
-        type="text"
-        id="institution-name"
-        name="institution-name"
-        value={searchTerm}
-        placeholder="Search courses..."
-        onChange={(e) => setSearchTerm(e.target.value)}
-      /></label>
-      
+      <label> Enter college name: 
+        <input
+          type="text"
+          id="institution-name"
+          name="institution-name"
+          value={searchTerm}
+          placeholder="Search courses..."
+          onChange={(e) => setSearchTerm(e.target.value)}
+        />
+      </label>
+
     </form>
    
   );
