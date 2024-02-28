@@ -74,7 +74,7 @@ export default function TransferCredits() {
 
       <div>
         {currentInstitution ? (
-          <>
+          <div>
           {/* Institution's courses*/}
             <div className="container2">
               <button
@@ -105,7 +105,8 @@ export default function TransferCredits() {
                 <CourseRequestForm />
                 </div>
             </div>
-          </>
+            </div>
+        </div>
         ) : (
           <>
             {/* List of all institutions*/}
