@@ -1,5 +1,7 @@
 import { useContext } from "react";
 import { LevelContext } from "./LevelContext";
+//import {randomUUID} from 'node:crypto';
+//window.crypto.randomUUID = randomUUID;
 
 import InstitutionListing from "./InstitutionListing";
 
@@ -25,16 +27,18 @@ export default function InstitutionTable(props) {
               .filter((institution) =>
                 institution.toLowerCase().includes(searchTerm.toLowerCase())
               )
-              .map((institution) => (
+            .map((institution,index) => (
                 <InstitutionListing
-                  key={crypto.randomUUID()} // Would prefer to use a rewarding institution code, if it ever got included into the dataset
+		  //                  key={crypto.randomUUID()} // Would prefer to use a rewarding institution code, if it ever got included into the dataset
+		  key={index} 
                   institution={institution}
                 />
               ))
           // Full table
-          : institutions.map((institution) => (
+         : institutions.map((institution,index) => (
               <InstitutionListing
-                key={crypto.randomUUID()}
+		//                key={window.crypto.randomUUID()}
+		key={index}
                 institution={institution}
               />
             ))}
