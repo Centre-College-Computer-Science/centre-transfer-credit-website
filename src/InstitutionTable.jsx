@@ -27,18 +27,14 @@ export default function InstitutionTable(props) {
               .filter((institution) =>
                 institution.toLowerCase().includes(searchTerm.toLowerCase())
               )
-            .map((institution,index) => (
+            .map((institution) => (
                 <InstitutionListing
-		  //                  key={crypto.randomUUID()} // Would prefer to use a rewarding institution code, if it ever got included into the dataset
-		  key={index} 
                   institution={institution}
                 />
               ))
           // Full table
-         : institutions.map((institution,index) => (
+         : institutions.map((institution) => (
               <InstitutionListing
-		//                key={window.crypto.randomUUID()}
-		key={index}
                 institution={institution}
               />
             ))}
