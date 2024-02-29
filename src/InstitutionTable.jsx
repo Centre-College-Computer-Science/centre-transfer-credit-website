@@ -29,12 +29,14 @@ export default function InstitutionTable(props) {
               )
             .map((institution) => (
                 <InstitutionListing
+                  key = {institution}
                   institution={institution}
                 />
               ))
           // Full table
          : institutions.map((institution) => (
               <InstitutionListing
+                key = {institution}
                 institution={institution}
               />
             ))}
