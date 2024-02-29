@@ -3,7 +3,6 @@ import csv
 def main():
     input_file_name = "..\\" + sys.argv[1]
     output_file_name = "..\\" + sys.argv[2]
-    print(input_file_name)
     institutions = {}
     with open(input_file_name, newline = '') as csvfile:
         spamreader = csv.reader(csvfile, delimiter = ',', quotechar = '|')
@@ -15,7 +14,7 @@ def main():
                 institutions[row[1]] = {row[6]: row}
 
     with open(output_file_name, 'w', newline = '') as csvfile:
-        spamwriter = csv.writer(csvfile, skipinitialspace=False, delimiter=',',quotechar = '|', quoting  = csv.QUOTE_MINIMAL)
+        spamwriter = csv.writer(csvfile, delimiter=',',quotechar = '|', quoting  = csv.QUOTE_MINIMAL)
         for row in institutions:
             for courseRow in institutions.get(row):
                 spamwriter.writerow(institutions.get(row).get(courseRow))
