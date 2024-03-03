@@ -7,6 +7,9 @@ import InstitutionTable from "./InstitutionTable";
 import InstitutionSearch from "./InstitutionSearch";
 import CourseRequestForm from "./CourseRequestForm";
 
+
+
+
 export default function TransferCredits() {
   let context = useContext(LevelContext);
   let currentInstitution = context.currentInstitution;
@@ -74,7 +77,7 @@ export default function TransferCredits() {
 
       <div>
         {currentInstitution ? (
-          <>
+          <div>
           {/* Institution's courses*/}
             <div className="container2">
               <button
@@ -105,7 +108,8 @@ export default function TransferCredits() {
                 <CourseRequestForm />
                 </div>
             </div>
-          </>
+            </div>
+        </div>
         ) : (
           <>
             {/* List of all institutions*/}
