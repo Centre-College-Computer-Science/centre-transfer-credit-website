@@ -1,11 +1,38 @@
-# React + Vite
+# Credit Check Page Courses
 
-There is an additional folder in this repositiory named 'tools'. This folder contains a file named CleanCSV.py, whose main function is to take the name of a csv file and the desired output csv file title name, and eliminate all course redundancies within the csv file. Currently, the registrar's office is adding the past history of approved transfer credits to the spreadsheet, not the individually unique courses. This file scans through the inputted csv file and ensures that all the courses in this list have no duplicates within universities. To run this function, the command line must contain 'CleanCSV.py', the name of the file you are choosing to input, and the desired name of your new file. 
+This project, "credit-check-page-courses," is a React-based web application designed to offer users a seamless experience in checking credits for various courses. Leveraging modern web technologies such as React, styled-components for styling, and react-router-dom for routing, this application provides a user-friendly interface for course credit verification at Centre College.
 
+## Features
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+- User-friendly course credit checking interface
+- Dynamic styling with styled-components
+- Efficient routing with react-router-dom
+- CSV file parsing capability using papaparse (used to render data about college credits)
+- Comprehensive unit testing environment
 
-Currently, two official plugins are available:
+## Getting Started
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+To get a local copy up and running, follow these simple steps.
+
+git clone https://github.com/districtjackson/centre-transfer-credit-website
+cd credit-check-page-courses
+npm install --legacy-peer-deps
+npm run dev
+
+### Prerequisites
+
+- Node.js (https://nodejs.org/)
+- npm (comes with Node.js)
+
+```bash
+# Verify Node.js and npm installation
+node --version
+npm --version
+```
+
+## Testing
+
+We have used the library Vitest to create all the testing enviroment. The configuration is detailed in vite.config.js
+
+Type this command to run the tests:
+npm run test
