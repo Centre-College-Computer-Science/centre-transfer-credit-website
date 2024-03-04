@@ -9,7 +9,7 @@ describe('Institution Search testing', () => {
         //mock function
         const mockSearch = vi.fn();
         //The placeholder in search bar
-        let nameHolder = "Centre College, Danville KY";
+        let nameHolder = "Search courses...";
 
     render(
         <LevelContext.Provider value={{setSearchTerm: mockSearch}}>
