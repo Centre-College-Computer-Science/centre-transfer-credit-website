@@ -14,10 +14,12 @@ This project, "credit-check-page-courses," is a React-based web application desi
 
 To get a local copy up and running, follow these simple steps.
 
+```bash
 git clone https://github.com/districtjackson/centre-transfer-credit-website
 cd credit-check-page-courses
 npm install --legacy-peer-deps
 npm run dev
+```
 
 ### Prerequisites
 
@@ -35,4 +37,7 @@ npm --version
 We have used the library Vitest to create all the testing enviroment. The configuration is detailed in vite.config.js
 
 Type this command to run the tests:
+
+```bash
 npm run test
+```
