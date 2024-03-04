@@ -30,6 +30,22 @@ const mockContext = {
       checked: false,
     },
     {
+      course_workNumber: "3",
+      rewarding_institution: "Institution A",
+      ri_courseTitle: "Course B",
+      centre_courseTitle: "Equivalent B",
+      centre_course_credits: 4,
+      checked: false,
+    },
+    {
+      course_workNumber: "4",
+      rewarding_institution: "Institution A",
+      ri_courseTitle: "Course C",
+      centre_courseTitle: "Equivalent C ",
+      centre_course_credits: 5,
+      checked: false,
+    },
+    {
       course_workNumber: "2",
       rewarding_institution: "Institution B",
       ri_courseTitle: "Course B",
@@ -50,9 +66,9 @@ const mockContext = {
     {
       course_workNumber: "2",
       rewarding_institution: "Institution D",
-      ri_courseTitle: "Course B",
+      ri_courseTitle: "Course C",
       centre_courseTitle: "Equivalent D",
-      centre_course_credits: 4,
+      centre_course_credits: 3,
       checked: true,
     },
   ],
@@ -60,13 +76,14 @@ const mockContext = {
   toggleSelected: vi.fn(),
 };
 
+
 describe("CourseTable", () => {
   beforeEach(() => {
     // Clear all mocks before each test
     vi.clearAllMocks();
   });
 
-  it("renders correctly when isSelected is false", () => {
+  it("renders correctly when selecting an institution", () => {
     render(
       <LevelContext.Provider value={mockContext}>
         <CourseTable isSelected={false} />
@@ -75,10 +92,20 @@ describe("CourseTable", () => {
 
     expect(screen.getByTestId("course-table")).toBeInTheDocument();
     // Should filter and display only the courses from the current institution
-    expect(screen.getAllByTestId("mock-course-listing")).toHaveLength(1);
+    //In this case the three courses from Institution A
+    expect(screen.getAllByTestId("mock-course-listing")).toHaveLength(3);
+    expect(screen.getByText('Course A')).toBeInTheDocument();
+    expect(screen.getByText('Equivalent A')).toBeInTheDocument();
+    expect(screen.getByText('3')).toBeInTheDocument();
+    expect(screen.getByText('Course B')).toBeInTheDocument();
+    expect(screen.getByText('Equivalent B')).toBeInTheDocument();
+    expect(screen.getByText('4')).toBeInTheDocument();
+    expect(screen.getByText('Course C')).toBeInTheDocument();
+    expect(screen.getByText('Equivalent C')).toBeInTheDocument();
+    expect(screen.getByText('5')).toBeInTheDocument();
   });
 
-  it("renders correctly when isSelected is true", () => {
+  it("renders the selected table correctly", () => {
     render(
       <LevelContext.Provider value={mockContext}>
         <CourseTable isSelected={true} />
@@ -88,9 +115,19 @@ describe("CourseTable", () => {
     expect(screen.getByTestId("course-table")).toBeInTheDocument();
     // Should display all selected courses
     expect(screen.getAllByTestId("mock-course-listing")).toHaveLength(2);
+    expect(screen.getByText('Institution B')).toBeInTheDocument();
+    expect(screen.getByText('Course B')).toBeInTheDocument();
+    expect(screen.getByText('Equivalent B')).toBeInTheDocument();
+    expect(screen.getByText('3')).toBeInTheDocument();
+    expect(screen.getByText('Institution D')).toBeInTheDocument();
+    expect(screen.getByText('Course C')).toBeInTheDocument();
+    expect(screen.getByText('Equivalent D')).toBeInTheDocument();
+    expect(screen.getByText('4')).toBeInTheDocument();
+    
+    
   });
 
-  it("displays courses with the correct institution when isSelected is false", () => {
+  it("displays courses with the correct institution", () => {
     render(
       <LevelContext.Provider value={mockContext}>
         <CourseTable isSelected={false} />
@@ -109,13 +146,27 @@ describe("CourseTable", () => {
       </LevelContext.Provider>
     );
 
-    // Since isSelected is true, we display courses from selectedList
-    // This test assumes that selectedList  contain courses from any institution,
-    // so we verify against the specific institutions of each selected course
+    // selectedList  contain courses from any institution,
+    // so this test verifies each course belongs to the rewarding institution
     mockContext.selectedList.forEach((course) => {
       expect(
         screen.getByText(course.rewarding_institution)
       ).toBeInTheDocument();
     });
   });
+  it("renders correctly when switching to a different institution", () => {
+    mockContext.currentInstitution= "Institution B"
+    render(
+      <LevelContext.Provider value={mockContext}>
+        <CourseTable isSelected={false} />
+      </LevelContext.Provider>
+    );
+
+    expect(screen.getByTestId("course-table")).toBeInTheDocument();
+    // Should filter and display only the courses from the current institution
+    expect(screen.getAllByTestId("mock-course-listing")).toHaveLength(1);
+    expect(screen.getByText('Course B')).toBeInTheDocument();
+  });
+  
 });
+
