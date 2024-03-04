@@ -1,11 +1,12 @@
 import { describe, it, expect, vi } from 'vitest';
 import * as React from "react";
-import { render, screen, fireEvent } from "@testing-library/react";
+import { render, screen, fireEvent, waitFor } from "@testing-library/react";
 import InstitutionListing from '../InstitutionListing.jsx';
 import { LevelContext } from '../LevelContext'; 
+import CourseListing from '../CourseListing.jsx';
 
 describe('Seeing if Instution List is functioning properly', () => {
-  it("render", ()=>{
+  it("render", async () => {
     const mockToggleSelected = vi.fn(); //mock function
 
     //a mockup list of a course
@@ -20,17 +21,16 @@ describe('Seeing if Instution List is functioning properly', () => {
     //setting up the InstitutionListing by rendering it
 
   render(
-    <LevelContext.Provider value={{ setCurrentInstitution: mockToggleSelected }}>
+    <LevelContext.Provider value={{ setCurrentInstitution: mockToggleSelected}}>
       <InstitutionListing institution={courseDetails.rewarding_institution} />
-    </LevelContext.Provider>
+    </LevelContext.Provider> 
   )
     //see if the name appears on the document
     expect(screen.getByText(courseDetails.rewarding_institution)).toBeInTheDocument();
 
     const nameFieldElement = screen.getByText(courseDetails.rewarding_institution); //name of the course
     fireEvent.click(nameFieldElement); //an event that clicks on the name
-  
-    //see of the function has been called or has been click
     expect(mockToggleSelected).toHaveBeenCalledWith(courseDetails.rewarding_institution);
+    //see of the function has been called or has been click
   });
 });
