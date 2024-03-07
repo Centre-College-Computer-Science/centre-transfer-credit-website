@@ -1,6 +1,7 @@
 {
   "name": "credit-check-page-courses",
   "version": "1.0.0",
+  "homepage": "/centre-transfer-credit-website/#",
   "description": "",
   "keywords": [],
   "main": "src/index.js",
