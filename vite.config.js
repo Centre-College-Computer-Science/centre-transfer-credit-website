@@ -12,6 +12,14 @@ import react from "@vitejs/plugin-react";
         environment: 'jsdom',
         css: true,
         setupFiles: './tests/setup.js',
-      }
+      },
+      build: {
+        rollupOptions: {
+          input: {
+            main: resolveConfig(__dirname, "index.tml"),
+            404: resolveConfig(__dirname, "public/404.html"),
+          },
+        },
+      },
   });
   
