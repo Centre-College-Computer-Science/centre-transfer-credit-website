@@ -1,7 +1,7 @@
 //<reference types="vitest" />
 //<reference types="vite/client" />
 import { defineConfig } from "vite";
-import { resolveConfig } from "vite";
+//import { resolveConfig } from "vite";
 import react from "@vitejs/plugin-react";
   
   // https://vitejs.dev/config/
@@ -15,13 +15,13 @@ import react from "@vitejs/plugin-react";
         css: true,
         setupFiles: './tests/setup.js',
       },
-      build: {
-        rollupOptions: {
-          input: {
-            main: resolveConfig(__dirname, "index.tml"),
-            404: resolveConfig(__dirname, "public/404.html"),
-          },
-        },
-      },
+      // build: {
+      //   rollupOptions: {
+      //     input: {
+      //       main: resolveConfig(__dirname, "index.tml"),
+      //       404: resolveConfig(__dirname, "public/404.html"),
+      //     },
+      //   },
+      // },
   });
   
