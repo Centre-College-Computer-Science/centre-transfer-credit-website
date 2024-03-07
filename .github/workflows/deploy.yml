@@ -2,7 +2,7 @@ name: Deploy static content to Pages
 
 on:
   push:
-    branches: [ main ]
+    branches: [ 'main' ]
 
   workflow_dispatch:
 
@@ -10,6 +10,10 @@ permissions:
   contents: read
   pages: write
   id-token: write
+
+concurrency:
+  group: 'pages'
+  cancel-in-progess: true
 
 jobs:
   deploy:
@@ -23,7 +27,7 @@ jobs:
       - name: Set up Node
       - uses: actions/setup/node@v3
         with:
-          node-version: 18
+          node-version: 20
           cache: 'npm'
       - name: Install dependcies
         run: npm install --legacy-peer-deps
