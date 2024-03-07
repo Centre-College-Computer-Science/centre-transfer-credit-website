@@ -1,6 +1,6 @@
 import "./styles.css";
 import { useEffect, useState } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom";
 import { LevelContext } from "./LevelContext";
 import { useFetchCourses } from "./hooks/useFetchCourses";
 import Layout from "./Layout";
@@ -54,7 +54,7 @@ export default function App() {
           universities. If your original credit was given by a traditional
           college or university, please see the transfer credit page.
         </p>
-        <BrowserRouter>
+        <HashRouter>
           <Routes>
             <Route path="/" element={<Layout />}>
               <Route index element={<TransferCredits />} />
@@ -62,7 +62,7 @@ export default function App() {
               <Route path="StudyAbroad" element={<StudyAbroad />} />
             </Route>
           </Routes>
-        </BrowserRouter>
+        </HashRouter>
       </div>
     </LevelContext.Provider>
   );
