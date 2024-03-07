@@ -124,6 +124,7 @@ nav ul, li, a {
   font-style: normal;
   border: 0;
   width:fit-content;
+  color: black;
 }
 .button:hover {
   cursor: pointer;
@@ -140,6 +141,7 @@ nav ul, li, a {
   padding-bottom: 5px;
   padding-top: 5px;
   margin-top: 10px;
+  color: black;
 }
 /*formatting for the specific "Saved Courses" button*/
 .course_button {
@@ -157,11 +159,13 @@ nav ul, li, a {
   font-size: large;
   padding-top: 5px;
   padding-bottom: 5px;  
+  color: black;
 }
 .course_button_icon {
   position: absolute;
   right:0px;
   top:0px;
+  color: black;
 }
 div.sticky {
   display: flex;
@@ -192,6 +196,7 @@ select{
 /*"Submit Request" button formatting */
 input[type=submit]{
   width:fit-content;
+  color:black;
   background-color: #ffcd00;
   font-family: "Roboto", sans-serif;
   font-weight: bold;
