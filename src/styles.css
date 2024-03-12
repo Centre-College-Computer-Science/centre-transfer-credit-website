@@ -63,12 +63,12 @@ td {
  /*properties for the navigation bar at the top of the page */
 nav ul, li, a {
   display: flex;
-  /* flex-wrap: wrap; */
-  list-style-type: none;
-  float: left;
   display: block;
-  background-color: #f2f2f2;
-  justify-content: left;
+
+}
+
+.creditBar {
+  flex-direction: row;
 }
 
 /*dictates properties of table scrollbars and the navigation bar at various screen widths*/

@@ -19,7 +19,7 @@ export default function Layout() {
     <>
       <div>
         {/* html for the navigation bar, makes sure the default page is transfer credits */}
-        <nav>
+        <nav className = 'creditBar'>
           <ul className="navigation">
             <li>
               <StyledLink to="/">Transfer Credits</StyledLink>
