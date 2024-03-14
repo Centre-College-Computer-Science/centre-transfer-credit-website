@@ -64,17 +64,20 @@ td {
 nav ul, li, a {
   display: flex;
   display: block;
-
 }
 
-.creditBar {
+.navRow {
   flex-direction: row;
+  float: left;
 }
+
+  
 
 /*dictates properties of table scrollbars and the navigation bar at various screen widths*/
 @media all and (max-width: 800px) {
   nav li {
     justify-content: space-around;
+    
   }
 }
 @media all and (max-width: 550px) {
