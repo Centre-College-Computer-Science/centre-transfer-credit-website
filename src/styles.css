@@ -4,7 +4,7 @@ body {
   color: black;
   font-weight: 400;
   font-style: normal;
-  background-color: #f2f2f2;
+  /*background-color: #f2f2f2;*/
 }
 h1 {
   color: black;
@@ -67,7 +67,7 @@ nav ul, li, a {
   list-style-type: none;
   float: left;
   display: block;
-  background-color: #f2f2f2;
+  /*background-color: #f2f2f2;*/
   justify-content: left;
 }
 
@@ -172,7 +172,7 @@ div.sticky {
   position: -webkit-sticky;
   position: sticky;
   top: 0;
-  background-color: #f2f2f2;
+  /*background-color: #f2f2f2;*/
   border: 5px solid #ffcd00;
 }
 /*formatting for the Course Request form, predominatly aimed at making sure the 

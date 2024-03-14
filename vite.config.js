@@ -2,11 +2,12 @@
 //<reference types="vite/client" />
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
+import { viteSingleFile } from "vite-plugin-singlefile";
   
   // https://vitejs.dev/config/
   export default defineConfig({
       base: '/centre-transfer-credit-website/',
-      plugins: [react()],
+      plugins: [react(), viteSingleFile()],
       assetsInclude: "**/*.csv",
       test: {
         globals : true,
