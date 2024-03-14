@@ -36,38 +36,19 @@ export default function TransferCredits() {
     
     <div>
      
-      <div className="sticky">
+      <div className="accordion" data-accordion-open-text = "Clisck to Open" data-accordion-close-text = "Click to Close">
         {/* Code for the drop down button for the saved list */}
-        <button className="button course_button" onClick={onClick}>
-          <div>
-            <div className="button course_button_text">Saved Courses </div>
-            
-            <div className="button course_button_icon">
-              <table className = "course_button_info">
-                <tbody>
-                <tr className = "standard">
-                  <td>
-              <p><b>{creditTotal == 0 ? null : creditTotal}</b></p>
-              </td>
-              <td >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-              >
-                <path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z" />
+        <button className="button accordion_button" onClick={onClick} aria-expanded = "false">
+          <span className="show-for-sr"></span>
+          <span className = "acordion_button-text"> Saved Courses<p><b>({creditTotal == 0 ? null : creditTotal})</b></p></span>
+              <svg className = "accordion_icon" xmlns="http://www.w3.org/2000/svg" viewBox=" 0 0 30 30">
+                <path className = "accordion_icon-path accordion_icon-path--horizontal" d = "M27.5 17.4h-25C1.2 17.4.1 16.3.1 15s1.1-2.4 2.4-2.4h25c1.3 0 2.4 1.1 2.4 2.4s-1.1 2.4-2.4 2.4z"></path>
+                <path className ="accordion__icon-path accordion__icon-path--vertical" d="M14.5 29.9c-1.3 0-2.4-1.1-2.4-2.4v-25c0-1.3 1.1-2.4 2.4-2.4s2.4 1.1 2.4 2.4v25c0 1.3-1.1 2.4-2.4 2.4z"></path>
               </svg>
-              </td>
-              </tr>
-              </tbody>
-              </table>
-            </div>
-          </div>
         </button>
         {/* Determines whether to show the list or not depending on if the button
             is pressed */}
-        <div className="scrollable_table">
+        <div className="accordion_content wysiwyg" style= "display: none; transition-timing-function:ease-in-out;">
           {showList ? <CourseTable isSelected={true} /> : null}
         </div>
       </div>

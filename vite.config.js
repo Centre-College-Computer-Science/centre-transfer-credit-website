@@ -7,7 +7,7 @@ import { viteSingleFile } from "vite-plugin-singlefile";
   // https://vitejs.dev/config/
   export default defineConfig({
       base: '/centre-transfer-credit-website/',
-      plugins: [react(), viteSingleFile()],
+      plugins: [react()/*, viteSingleFile()*/],
       assetsInclude: "**/*.csv",
       test: {
         globals : true,
