@@ -4,7 +4,7 @@ body {
   color: black;
   font-weight: 400;
   font-style: normal;
-  /*background-color: #f2f2f2;*/
+  background-color: #f2f2f2;
 }
 h1 {
   color: black;
@@ -63,18 +63,21 @@ td {
  /*properties for the navigation bar at the top of the page */
 nav ul, li, a {
   display: flex;
-  /* flex-wrap: wrap; */
-  list-style-type: none;
-  float: left;
   display: block;
-  /*background-color: #f2f2f2;*/
-  justify-content: left;
 }
+
+.navRow {
+  flex-direction: row;
+  float: left;
+}
+
+  
 
 /*dictates properties of table scrollbars and the navigation bar at various screen widths*/
 @media all and (max-width: 800px) {
   nav li {
     justify-content: space-around;
+    
   }
 }
 @media all and (max-width: 550px) {
@@ -172,7 +175,7 @@ div.sticky {
   position: -webkit-sticky;
   position: sticky;
   top: 0;
-  /*background-color: #f2f2f2;*/
+  background-color: #f2f2f2;
   border: 5px solid #ffcd00;
 }
 /*formatting for the Course Request form, predominatly aimed at making sure the 
