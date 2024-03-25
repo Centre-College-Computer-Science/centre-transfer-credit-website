@@ -89,6 +89,9 @@ nav ul, li, a {
     overflow: auto;
 
   }
+}
+
+@media all and (max-width: 1050px) {
   div.scrollable_table {
     display: flex;
     width: 100%;
@@ -145,15 +148,15 @@ nav ul, li, a {
   margin-top: 10px;
 }
 /*formatting for the specific "Saved Courses" button*/
-.course_button {
+/* .course_button {
   width: 100%;
   background-color: #ffcd00;
   text-align: left;
   padding-left: 20px;
   border: 0;
   
-}
-.course_button_text {
+} */
+/* .course_button_text {
   font-family: "Roboto", sans-serif;
   font-weight: bold;
   font-style: normal;
@@ -161,12 +164,12 @@ nav ul, li, a {
   padding-top: 5px;
   padding-bottom: 5px;  
 
-}
-.course_button_icon {
+} */
+/* .course_button_icon {
   position: absolute;
   right:0px;
   top:0px;
-}
+} */
 div.sticky {
   display: flex;
   flex-direction: column;
@@ -207,4 +210,52 @@ input[type=submit]{
   padding-top: 5px;
   color: black;
 }
+
+.accordion_button .wysiwyg {
+  transition-timing-function: ease-in-out;
+  display: none;
+}
+
+/* .accordion_button{
+  width: 100%;
+  height:min-content;
+  position: sticky;
+} */
+
+.saved_course_button {
+  position: relative;
+  right:0px;
+  top:0px;
+  max-height: 15px;
+  margin-top: 4px;
+}
+
+.full{
+  width: 100%;
+  text-align: right !important; 
+}
+
+.acordion_button-text {
+  position: relative;
+  left:0px;
+  top:0px;
+  /* max-height: 15px; */
+}
+
+.right_pos{
+  position: relative;
+}
+.left_pos{
+  float: left;
+}
+
+.single_line{
+  align-content: right;
+}
+ 
+.fix_align {
+  text-align: right;
+
+} 
+
 

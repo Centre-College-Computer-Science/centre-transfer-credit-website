@@ -35,24 +35,34 @@ export default function TransferCredits() {
   return (
     
     <div>
-     
-      <div className="accordion" data-accordion-open-text = "Clisck to Open" data-accordion-close-text = "Click to Close">
+      <section className = "accordions global-spacing global-spacing--3xlarge">
+      <div className="grid-container full">
+      <div className="grid-container global-spacing--default">
+      <div id = "Saved Courses" className="accordion borderless" data-accordion-open-text = "Click to Open" data-accordion-close-text = "Click to Close">
         {/* Code for the drop down button for the saved list */}
-        <button className="button accordion_button" onClick={onClick} aria-expanded = "false">
-          <span className="show-for-sr"></span>
-          <span className = "acordion_button-text"> Saved Courses<p><b>({creditTotal == 0 ? null : creditTotal})</b></p></span>
-              <svg className = "accordion_icon" xmlns="http://www.w3.org/2000/svg" viewBox=" 0 0 30 30">
+        <button className="accordion_button btn full" onClick={onClick} aria-expanded = {onClick}>
+          
+          <span className = "accordion_button-text left_pos"><p><b> Saved Courses {creditTotal == 0 ? null : " (" + creditTotal + ")"}</b></p></span>
+              {/* <span className="accordion_button-text right_pos"><b></b></span> */}
+              <span className = "accordion_button-text right_pos"><svg className = "accordion_icon saved_course_button" xmlns="http://www.w3.org/2000/svg" viewBox=" 0 0 30 30">
                 <path className = "accordion_icon-path accordion_icon-path--horizontal" d = "M27.5 17.4h-25C1.2 17.4.1 16.3.1 15s1.1-2.4 2.4-2.4h25c1.3 0 2.4 1.1 2.4 2.4s-1.1 2.4-2.4 2.4z"></path>
                 <path className ="accordion__icon-path accordion__icon-path--vertical" d="M14.5 29.9c-1.3 0-2.4-1.1-2.4-2.4v-25c0-1.3 1.1-2.4 2.4-2.4s2.4 1.1 2.4 2.4v25c0 1.3-1.1 2.4-2.4 2.4z"></path>
-              </svg>
-        </button>
-        {/* Determines whether to show the list or not depending on if the button
-            is pressed */}
-        <div className="accordion_content wysiwyg" style= "display: none; transition-timing-function:ease-in-out;">
-          {showList ? <CourseTable isSelected={true} /> : null}
-        </div>
-      </div>
+              </svg></span>
+              
 
+              </button>
+            {/* Determines whether to show the list or not depending on if the button
+            is pressed */}
+          <div className="accordion_content wysiwyg scrollable_table">
+          {showList ? <CourseTable isSelected={true} /> : null}
+          </div> 
+        
+        
+        
+      </div>
+      </div>
+      </div>
+      </section>
       {/* Displays either the list of institutions or an institution's courses,
           depending on whether a current institution is selected or not */}
 

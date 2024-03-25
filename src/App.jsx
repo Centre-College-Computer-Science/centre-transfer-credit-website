@@ -1,4 +1,5 @@
 import "./styles.css";
+import "./theme.css";
 import { useEffect, useState } from "react";
 import { HashRouter, Routes, Route } from "react-router-dom";
 import { LevelContext } from "./LevelContext";
