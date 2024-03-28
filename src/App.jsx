@@ -48,22 +48,30 @@ export default function App() {
         toggleSelected,
       }}
     >
-      <div className="container">
+      <div className="container  parent_sticky">
+        <div className="parent_content"> 
         <h1>Centre College Transfer Policy</h1>
         <p>
           Please use this website to verify which courses transfer across
           universities. If your original credit was given by a traditional
           college or university, please see the transfer credit page.
         </p>
+    
         <HashRouter>
+          
           <Routes>
+            
             <Route path="/" element={<Layout />}>
               <Route index element={<TransferCredits />} />
               <Route path="APCredits" element={<APCredits />} />
               <Route path="StudyAbroad" element={<StudyAbroad />} />
             </Route>
+            
           </Routes>
+          
         </HashRouter>
+      
+      </div>
       </div>
     </LevelContext.Provider>
   );

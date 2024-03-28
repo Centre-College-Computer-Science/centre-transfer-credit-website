@@ -62,7 +62,10 @@ td {
  /*properties for the navigation bar at the top of the page */
 nav ul, li, a {
   display: flex;
-  display: block;
+}
+nav{
+  margin-top: 1rem;
+  margin-bottom: 1em;
 }
 
 .navRow {
@@ -82,21 +85,35 @@ nav ul, li, a {
 @media all and (max-width: 550px) {
   nav li {
     flex-direction: column;
+    display: block;
     width: 100%;
   }
   .container2{
     flex-shrink: 0;
     overflow: auto;
-
   }
 }
-
+@media all and (max-width: 293px) {
+  input[type=text]{
+    size:"20";
+  }
+}
+.scrollable_table {
+  background-color: white;
+  margin-bottom: 0rem !important;
+}
 @media all and (max-width: 1050px) {
   div.scrollable_table {
     display: flex;
     width: 100%;
     overflow-x: scroll;
+
   }
+}
+.spaced_out{
+  justify-content: space-around;
+  width: 100%; 
+  
 }
 /*flex properties of the container divs*/
 .flex-container {
@@ -147,37 +164,24 @@ nav ul, li, a {
   padding-top: 5px;
   margin-top: 10px;
 }
-/*formatting for the specific "Saved Courses" button*/
-/* .course_button {
-  width: 100%;
-  background-color: #ffcd00;
-  text-align: left;
-  padding-left: 20px;
-  border: 0;
-  
-} */
-/* .course_button_text {
-  font-family: "Roboto", sans-serif;
-  font-weight: bold;
-  font-style: normal;
-  font-size: large;
-  padding-top: 5px;
-  padding-bottom: 5px;  
 
-} */
-/* .course_button_icon {
-  position: absolute;
-  right:0px;
-  top:0px;
-} */
-div.sticky {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
+/*formatting for the stick content*/
+.sticky {
+
+  position: -webkit-sticky;
+  position: sticky !important;
+  top: 0;
+  margin-bottom: none;
+  margin-top: none;
+  z-index: 3;
+}
+.parent_sticky {
   position: -webkit-sticky;
   position: sticky;
-  top: 0;
-  border: 5px solid #ffcd00;
+  top: -3em;
+}
+.parent_content {
+  height: 3em;
 }
 /*formatting for the Course Request form, predominatly aimed at making sure the 
 spacing between the text and input sections are separated in-line*/
@@ -216,11 +220,6 @@ input[type=submit]{
   display: none;
 }
 
-/* .accordion_button{
-  width: 100%;
-  height:min-content;
-  position: sticky;
-} */
 
 .saved_course_button {
   position: relative;
@@ -233,13 +232,15 @@ input[type=submit]{
 .full{
   width: 100%;
   text-align: right !important; 
+  /* margin-bottom: 0rem;
+  margin: 0;
+  padding: none; */
 }
 
 .acordion_button-text {
   position: relative;
   left:0px;
   top:0px;
-  /* max-height: 15px; */
 }
 
 .right_pos{
@@ -258,4 +259,11 @@ input[type=submit]{
 
 } 
 
+.fix_count_size {
+  font-size: large;
+  font-weight: 600;
+}
 
+.no_bottom_margin{
+  margin-bottom: 0rem;
+}

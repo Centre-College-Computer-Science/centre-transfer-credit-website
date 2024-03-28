@@ -11,16 +11,17 @@ const StyledLink = styled(Link)`
   background-color: ##f2f2f2;
   padding: 20px;
   margin: auto;
+  width: 100%;
 `;
 
 //JS implementation of the navigation bar
 export default function Layout() {
   return (
     <>
-      <div>
+      <div className="spaced_out">
         {/* html for the navigation bar, makes sure the default page is transfer credits */}
         <nav >
-          <ul className="navigation">
+          <ul className="navigation spaced_out">
             <li className="navRow">
               <StyledLink to="/">Transfer Credits</StyledLink>
             </li>

@@ -24,7 +24,7 @@ export default function CourseTable(props) {
   }
 
   return (
-    <table data-testid= "course-table" className="course-table">
+    <table data-testid= "course-table" className="course-table no_bottom_margin">
       <thead>
         <tr>
           <th>Rewarding Institution</th>
