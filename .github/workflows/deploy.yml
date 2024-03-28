@@ -43,3 +43,22 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v2
+      - name: Build Embed
+        run: npm run build-embed --if-present
+      - name: Read File Content
+        env:
+          DRUPAL_TARGET: ${{ secrets.DRUPAL_TARGET }}
+          DRUPAL_USERNAME: ${{ secrets.DRUPAL_USERNAME }}
+          DRUPAL_PASSWORD: ${{ secrets.DRUPAL_PASSWORD }}
+        run: |
+          HTML_CONTENT=$(awk '{printf "%s!!!n!!!", $0}' ./dist/embed.html)
+          HTML_CONTENT=$(echo -E $HTML_CONTENT | sed -e 's#\\#\\\\#g' -e 's#"#\\"#g' -e 's#\t#\\t#g' -e 's#/#\\/#g' -e 's#\x1F#\\u001F#g' -e 's#\x1E#\\u001E#g' -e 's#!!!n!!!#\\n#g')
+          echo -nE '{"body": [{"format": "unrestricted_html","value": "' > temp_html.txt
+          echo -nE "${HTML_CONTENT}" >> temp_html.txt
+          echo -nE '"}],"type": [{"target_id": "page"}]}' >> temp_html.txt
+          AUTH=$(echo -n "$DRUPAL_USERNAME:$DRUPAL_PASSWORD" | base64)
+          curl --request PATCH \
+            --url "$DRUPAL_TARGET" \
+            --header "Content-Type: application/json" \
+            --header "Authorization: Basic $AUTH" \
+            --data-binary "@temp_html.txt"
