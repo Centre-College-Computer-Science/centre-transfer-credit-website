@@ -42,7 +42,7 @@ export default function TransferCredits() {
         {/* Code for the drop down button for the saved list */}
         <button className="accordion_button btn full sticky_space" onClick={onClick} aria-expanded = {onClick}>
           
-          <span className = "accordion_button-text left_pos"><b> Saved Courses </b><span className="fix_count_size">{creditTotal == 0 ? null : " (" + creditTotal + ")"}</span></span>
+          <span className = "accordion_button-text left_pos"><b> Saved Courses</b><span className="fix_count_size">{creditTotal == 0 ? null : " (" + creditTotal + ")"}</span></span>
               {/* <span className="accordion_button-text right_pos"><b></b></span> */}
               <span className = "accordion_button-text right_pos"><svg className = "accordion_icon saved_course_button" xmlns="http://www.w3.org/2000/svg" viewBox=" 0 0 30 30">
                 <path className = "accordion_icon-path accordion_icon-path--horizontal" d = "M27.5 17.4h-25C1.2 17.4.1 16.3.1 15s1.1-2.4 2.4-2.4h25c1.3 0 2.4 1.1 2.4 2.4s-1.1 2.4-2.4 2.4z"></path>

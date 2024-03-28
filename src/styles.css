@@ -125,8 +125,7 @@ nav{
   display: flex;
   flex-direction: column;
   justify-content: left;
-  padding-left: 20px;
-  padding-right: 20px;
+  
   margin: 10px;
 }
 .container2 {

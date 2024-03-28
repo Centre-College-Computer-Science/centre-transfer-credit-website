@@ -50,7 +50,6 @@ export default function App() {
     >
       <div className="container  parent_sticky">
         <div className="parent_content"> 
-        <h1>Centre College Transfer Policy</h1>
         <p>
           Please use this website to verify which courses transfer across
           universities. If your original credit was given by a traditional
