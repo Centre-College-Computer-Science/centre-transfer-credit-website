@@ -101,15 +101,18 @@ nav{
 .scrollable_table {
   background-color: white;
   margin-bottom: 0rem !important;
+  overflow-x: hidden;
+  display: flex;
+  width:100%;
 }
-@media all and (max-width: 1050px) {
+/* @media all and (max-width: 1050px) {
   div.scrollable_table {
     display: flex;
     width: 100%;
-    overflow-x: scroll;
+    
 
   }
-}
+} */
 .spaced_out{
   justify-content: space-around;
   width: 100%; 
@@ -125,7 +128,6 @@ nav{
   display: flex;
   flex-direction: column;
   justify-content: left;
-  
   margin: 10px;
 }
 .container2 {
