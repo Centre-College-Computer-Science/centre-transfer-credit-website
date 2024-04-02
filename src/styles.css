@@ -179,11 +179,11 @@ nav{
 .parent_sticky {
   position: -webkit-sticky;
   position: sticky;
-  top: -3em;
+  /* top: -3em; */
 }
-.parent_content {
-  height: 3em;
-}
+/* .parent_content {
+  
+   height: 3em;} */
 /*formatting for the Course Request form, predominatly aimed at making sure the 
 spacing between the text and input sections are separated in-line*/
 form {

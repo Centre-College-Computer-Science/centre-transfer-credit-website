@@ -53,7 +53,10 @@ export default function App() {
         <p>
           Please use this website to verify which courses transfer across
           universities. If your original credit was given by a traditional
-          college or university, please see the transfer credit page.
+          college or university, please see the transfer credit page. If your credit 
+          was awarded through an Advanced Placement (AP) Exam, please see the AP Credits page.
+          For current students, please see the Study Abroad page to view the past accepted 
+          study abroad transfer credits.
         </p>
     
         <HashRouter>
