@@ -64,10 +64,11 @@ td {
   display: flex;
 } */
 
-/* .navigationInLine{
+.navigationInLine{
   display: flex;
   flex-direction: row;
-} */
+  height: fit-content;
+} 
 .fix_top_margin {
   margin-top: 1.5rem;
 }
