@@ -20,7 +20,7 @@ export default function Layout() {
     <>
       <div className="spaced_out">
         {/* html for the navigation bar, makes sure the default page is transfer credits */}
-        <nav >
+        <nav className="fix_top_margin">
           <ul className="navigation spaced_out">
             <li className="navRow">
               <StyledLink to="/">Transfer Credits</StyledLink>
