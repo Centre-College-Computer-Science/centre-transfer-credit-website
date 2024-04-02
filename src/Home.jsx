@@ -5,7 +5,6 @@ export default function Home() {
         <h1>Centre College Transfer Policy</h1>
         <h3>Transfer Credits</h3>
         <p>
-          Test
           Please use this website to verify which courses transfer accros
           universities. If your original credit was given by a traditional
           college or university, please see the transfer credit page.
