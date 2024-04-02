@@ -35,9 +35,9 @@ export default function TransferCredits() {
   return (
     
     <div>
-      <section className = "accordions global-spacing sticky">
-      <div className="grid-container full">
-      <div className="grid-container ">
+      <div className = "sticky">
+      {/* <div className="grid-container full">
+      <div className="grid-container "> */}
       <div className="accordion borderless " data-accordion-open-text = "Click to Open" data-accordion-close-text = "Click to Close">
         {/* Code for the drop down button for the saved list */}
         <button className="accordion_button btn full sticky_space" onClick={onClick} aria-expanded = {onClick}>
@@ -60,9 +60,9 @@ export default function TransferCredits() {
         
         
       </div>
+      {/* </div>
+      </div> */}
       </div>
-      </div>
-      </section>
 
       
 
