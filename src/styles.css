@@ -32,7 +32,7 @@ th {
   background-color: #ffcd00;
   padding: 5px;
   text-align: center;
-  border-color: #ffcd00;
+  
 }
 td {
   padding: 10px;
@@ -60,8 +60,11 @@ td {
 }
 
  /*properties for the navigation bar at the top of the page */
-nav ul, li, a {
+nav ul, li {
   display: flex;
+}
+.fix_top_margin {
+  margin-top: 1.5rem;
 }
 nav{
   margin-top: 1rem;
