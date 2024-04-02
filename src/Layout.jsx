@@ -18,17 +18,17 @@ const StyledLink = styled(Link)`
 export default function Layout() {
   return (
     <>
-      <div className="spaced_out">
+      <div className="navBarPadding">
         {/* html for the navigation bar, makes sure the default page is transfer credits */}
-        <nav className="fix_top_margin">
-          <ul className="navigation spaced_out">
-            <li className="navRow">
+        <nav>
+          <ul className="spaced_out">
+            <li className="positionInRow fix_top_margin">
               <StyledLink to="/">Transfer Credits</StyledLink>
             </li>
-            <li className="navRow">
+            <li className="positionInRow">
               <StyledLink to="/APCredits">AP Credits</StyledLink>
             </li>
-            <li className="navRow">
+            <li className="positionInRow">
               <StyledLink to="/StudyAbroad">Study Abroad</StyledLink>
             </li>
           </ul>
