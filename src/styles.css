@@ -109,9 +109,6 @@ td {
   .nav--li{
     margin: 1rem;
   }
-  .sticky {
-    top: -7rem !important;
-  }
   .container2{
     flex-shrink: 0;
     overflow: auto;
@@ -122,11 +119,7 @@ td {
     size:"20";
   }
 }
-@media all and (max-width: 280px){
-  .sticky{
-  top: -9.25rem !important;
-  }
-}
+
 .scrollable_table {
   background-color: white;
   margin-bottom: 0rem !important;
@@ -199,7 +192,7 @@ td {
 .sticky {
   position: -webkit-sticky;
   position: sticky !important;
-  top: -3.75rem;
+  top: 0rem;
   margin-bottom: 0;
   margin-top: 0;
   z-index: 3;
