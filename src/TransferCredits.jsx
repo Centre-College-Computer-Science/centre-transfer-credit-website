@@ -109,7 +109,7 @@ export default function TransferCredits() {
         ) : (
           <>
             {/* List of all institutions*/}
-            <h2> Institutions </h2>
+            <h2 className="fix_top_margin"> Institutions </h2>
             <InstitutionSearch />
             <InstitutionTable />
           </>
