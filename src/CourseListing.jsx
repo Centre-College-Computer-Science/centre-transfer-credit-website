@@ -20,9 +20,11 @@ export default function CourseListing(props) {
         // creates a checkbox that toggles whether the course is checked
         //(and therefore added to the saved courses list)
           type="checkbox"
+          id={course.ri_courseTitle}
           checked={course.checked}
           onChange={(e) => toggleSelected(course, e.target.checked)}
         />
+         <label for={course.ri_courseTitle}>&nbsp;</label>
       </td>
     </tr>
   );
