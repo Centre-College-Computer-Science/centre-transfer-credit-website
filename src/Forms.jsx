@@ -44,7 +44,7 @@ function Forms() {
         <h3>Don't see a class you have taken here?</h3>
 
         <div className="form">
-          <form onSubmit={handleSubmit}>
+          <form class="webform" onSubmit={handleSubmit}>
             <label htmlFor="finstitutionname">
               <b>Enter Name of Institution that Offers the Course:</b>
             </label>
