@@ -51,30 +51,18 @@ export default function App() {
       <div className="container  parent_sticky">
         <div className="parent_content"> 
         <p>
-          Please use this website to verify which courses transfer across
-          universities. If your original credit was given by a traditional
-          college or university, please see the transfer credit page. If your credit 
-          was awarded through an Advanced Placement (AP) Exam, please see the AP Credits page.
-          For current students, please see the Study Abroad page to view the past accepted 
-          study abroad transfer credits.
+          This tool helps transferring students to determine what classes can be transferred in to Centre.
+        </p>
+        <p>
+          Information on Centre's pre-matriculation credit policy, including <b>AP</b>, <b>IB</b>, CLEP, and international exams, can be found 
+          <a href="https://www.centre.edu/apply/college-credit-equivalency">here</a>.
+        </p>
 
-          Dual Credit Policy:
-          AP Credit Policy:
+        <p>
+          <b>If you do not see your transferring institution below</b>, click <a href="https://youtu.be/dQw4w9WgXcQ?si=W7wjRWeYkdsnsFvu">here</a> to submit a request for your courses to be accepted.
         </p>
     
-        <HashRouter>
-          
-          <Routes>
-            
-            <Route path="/" element={<Layout />}>
-              <Route index element={<TransferCredits />} />
-              <Route path="APCredits" element={<APCredits />} />
-              <Route path="StudyAbroad" element={<StudyAbroad />} />
-            </Route>
-            
-          </Routes>
-          
-        </HashRouter>
+        <TransferCredits />
       
       </div>
       </div>
