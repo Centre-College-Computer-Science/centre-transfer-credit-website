@@ -197,7 +197,7 @@ td {
   top: 0rem;
   margin-bottom: 0;
   margin-top: 0;
-  z-index: 3;
+  z-index: 5;
 }
 .parent_sticky {
   position: -webkit-sticky;
@@ -290,4 +290,14 @@ input[type=submit]{
 
 .no_bottom_margin{
   margin-bottom: 0rem;
+}
+
+.general-page-max__content {
+
+  max-width: 1200px !important;
+
+}
+
+.backgroundFormatting{
+  background-color: white;
 }

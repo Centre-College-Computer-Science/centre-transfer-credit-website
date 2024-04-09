@@ -19,6 +19,10 @@ export default function TransferCredits() {
   const onClick = () => setShowList((showList) => !showList);
   let selectedList = context.selectedList;
 
+  const[accorChange, changeAccorClass] = useState(false)
+  const clicked = () => {setShowList((showList) => !showList), changeAccorClass((accorChange) => !accorChange)};
+
+
 
 // Loops through the selectedList and adds up all the course credit totals
 // for the courses in that list
@@ -35,15 +39,12 @@ export default function TransferCredits() {
   return (
     
     <div>
-      <div className = "sticky">
-      {/* <div className="grid-container full">
-      <div className="grid-container "> */}
+      {/* <div className = "sticky">
       <div className="accordion borderless " data-accordion-open-text = "Click to Open" data-accordion-close-text = "Click to Close">
-        {/* Code for the drop down button for the saved list */}
-        <button className="accordion_button btn full sticky_space" onClick={onClick} aria-expanded = {onClick}>
+        
+        <button className="accordion_button btn full sticky_space" >
           
           <span className = "accordion_button-text left_pos"><b> Saved Courses</b><span className="fix_count_size">{creditTotal == 0 ? null : " (" + creditTotal + ")"}</span></span>
-              {/* <span className="accordion_button-text right_pos"><b></b></span> */}
               <span className = "accordion_button-text right_pos"><svg className = "accordion_icon saved_course_button" xmlns="http://www.w3.org/2000/svg" viewBox=" 0 0 30 30">
                 <path className = "accordion_icon-path accordion_icon-path--horizontal" d = "M27.5 17.4h-25C1.2 17.4.1 16.3.1 15s1.1-2.4 2.4-2.4h25c1.3 0 2.4 1.1 2.4 2.4s-1.1 2.4-2.4 2.4z"></path>
                 <path className ="accordion__icon-path accordion__icon-path--vertical" d="M14.5 29.9c-1.3 0-2.4-1.1-2.4-2.4v-25c0-1.3 1.1-2.4 2.4-2.4s2.4 1.1 2.4 2.4v25c0 1.3-1.1 2.4-2.4 2.4z"></path>
@@ -51,20 +52,35 @@ export default function TransferCredits() {
               
 
               </button>
-            {/* Determines whether to show the list or not depending on if the button
-            is pressed */}
           <div className="accordion_content wysiwyg scrollable_table">
           {showList ? <CourseTable isSelected={true} /> : null}
-          </div> 
+          </div>  
         
+          
         
         
       </div>
-      {/* </div>
-      </div> */}
+     
       </div>
 
-      
+      */}
+
+
+      <div className="sticky">
+      <div class={accorChange ? "accordion" : "accordion--open"} data-accordion-open-text="Click to Open" data-accordion-close-text="Click to Close">
+
+        <button class="accordion__button btn sticky_space" onClick={clicked} aria-expanded =  {accorChange}>
+                <span class="show-for-sr"></span>
+                <span class="accordion__button-text"><b> Saved Courses</b><span className="fix_count_size">{creditTotal == 0 ? null : " (" + creditTotal + ")"}</span></span>
+                <svg class="accordion__icon" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 30 30"><path class="accordion__icon-path accordion__icon-path--horizontal" d="M27.5 17.4h-25C1.2 17.4.1 16.3.1 15s1.1-2.4 2.4-2.4h25c1.3 0 2.4 1.1 2.4 2.4s-1.1 2.4-2.4 2.4z"/><path class="accordion__icon-path accordion__icon-path--vertical" d="M14.5 29.9c-1.3 0-2.4-1.1-2.4-2.4v-25c0-1.3 1.1-2.4 2.4-2.4s2.4 1.1 2.4 2.4v25c0 1.3-1.1 2.4-2.4 2.4z"/></svg>
+        </button>
+        <div class="accordion__content wysiwyg backgroundFormatting" style={accorChange ? {display:"block", transitionTimingFunction : "ease-in-out"} : {display:"none"}}>
+        
+          {showList ? <CourseTable isSelected={true} /> : null}
+        </div>
+
+      </div>
+      </div>
 
 
 
