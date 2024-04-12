@@ -9,19 +9,21 @@ export default function InstitutionSearch() {
   // Returns a text input field that changes the searchTerm
   // in the context on change
   return (
-    <form id="school-search">
-      <label> Enter college name: 
+    <form className={"webform"} id="school-search">
+      <div className={"form-item"}>
+        <label htmlFor={"institution-name"}> Enter college name:</label>
         <input
-          type="text"
-          id="institution-name"
-          name="institution-name"
-          value={searchTerm}
-          placeholder="Search courses..."
-          onChange={(e) => setSearchTerm(e.target.value)}
+            type="text"
+            id="institution-name"
+            name="institution-name"
+            value={searchTerm}
+            placeholder="Search courses..."
+            onChange={(e) => setSearchTerm(e.target.value)}
         />
-      </label>
+
+      </div>
 
     </form>
-   
+
   );
 }

@@ -15,16 +15,17 @@ export default function CourseListing(props) {
       <td>{course.ri_courseTitle}</td>
       <td>{course.centre_courseTitle}</td>
       <td>{course.centre_course_credits}</td>
-      <td className="checkbox-col">
+      <td className="checkbox-col form-item">
         <input
         // creates a checkbox that toggles whether the course is checked
         //(and therefore added to the saved courses list)
           type="checkbox"
           id={course.ri_courseTitle}
+          name={'checkbox[' + course.ri_courseTitle + ']'}
           checked={course.checked}
           onChange={(e) => toggleSelected(course, e.target.checked)}
         />
-         <label for={course.ri_courseTitle}>&nbsp;</label>
+         <label for={course.ri_courseTitle} dangerouslySetInnerHTML={{__html: '&nbsp;'}}></label>
       </td>
     </tr>
   );

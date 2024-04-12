@@ -1,86 +1,132 @@
-import { useContext } from "react";
-import { useState } from "react";
+import { useRef, useContext, useEffect } from "react";
 import { LevelContext } from "./LevelContext";
-
 import CourseTable from "./CourseTable";
 import InstitutionTable from "./InstitutionTable";
 import InstitutionSearch from "./InstitutionSearch";
 import CourseRequestForm from "./CourseRequestForm";
 
-
-
-
 export default function TransferCredits() {
+
   let context = useContext(LevelContext);
   let currentInstitution = context.currentInstitution;
   let setCurrentInstitution = context.setCurrentInstitution;
+  let accordionExpanded = context.accordionExpanded;
+  let setAccordionExpanded = context.setAccordionExpanded;
+  let animationDuration = 500;
 
-  const [showList, setShowList] = useState(false);
-  const onClick = () => setShowList((showList) => !showList);
   let selectedList = context.selectedList;
+  const accordionContentRef = useRef(null);
 
-  const[accorChange, changeAccorClass] = useState(false)
-  const clicked = () => {setShowList((showList) => !showList), changeAccorClass((accorChange) => !accorChange)};
+  const slideDown = () => {
+    const element = accordionContentRef.current;
+    element.style.removeProperty('display');
+    let display = window.getComputedStyle(element).display;
+    if (display === 'none') {
+      display = 'block';
+    }
+    element.style.display = display;
+    const height = element.offsetHeight;
+    element.style.overflow = 'hidden';
+    element.style.height = 0;
+    element.style.paddingTop = 0;
+    element.style.paddingBottom = 0;
+    element.style.marginTop = 0;
+    element.style.marginBottom = 0;
+    // Allow unused expression here, querying offsetHeight causes the browser to
+    // recalculate the correct height.
+    element.offsetHeight; // eslint-disable-line
+    element.style.transitionProperty = 'height, margin, padding';
+    element.style.transitionDuration = `${animationDuration}ms`;
+    element.style.transitionTimingFunction = 'ease-in-out';
+    element.style.height = `${height}px`;
+    element.style.removeProperty('padding-top');
+    element.style.removeProperty('padding-bottom');
+    element.style.removeProperty('margin-top');
+    element.style.removeProperty('margin-bottom');
+    window.setTimeout(() => {
+      element.style.removeProperty('height');
+      element.style.removeProperty('overflow');
+      element.style.removeProperty('transition-duration');
+      element.style.removeProperty('transition-property');
+    }, animationDuration);
+  };
 
+  const slideUp = () => {
+    const element = accordionContentRef.current;
+    element.style.height = `${element.offsetHeight}px`;
+    element.style.transitionProperty = 'height, margin, padding';
+    element.style.transitionDuration = `${animationDuration}ms`;
+    element.style.transitionTimingFunction = 'ease-in-out';
+    element.offsetHeight; // Cause a reflow, enabling the transition
+    element.style.overflow = 'hidden';
+    element.style.height = 0;
+    element.style.paddingTop = 0;
+    element.style.paddingBottom = 0;
+    element.style.marginTop = 0;
+    element.style.marginBottom = 0;
+    window.setTimeout(() => {
+      element.style.display = 'none';
+      element.style.removeProperty('height');
+      element.style.removeProperty('padding-top');
+      element.style.removeProperty('padding-bottom');
+      element.style.removeProperty('margin-top');
+      element.style.removeProperty('margin-bottom');
+      element.style.removeProperty('overflow');
+      element.style.removeProperty('transition-duration');
+      element.style.removeProperty('transition-property');
+    }, animationDuration);
+  };
 
+  useEffect(() => {
+    if (accordionExpanded) {
+      slideDown();
+    } else {
+      slideUp();
+    }
+  }, [accordionExpanded]); // Effect will run when `isOpen` changes.
 
-// Loops through the selectedList and adds up all the course credit totals
-// for the courses in that list
+  // Loops through the selectedList and adds up all the course credit totals
+  // for the courses in that list
   const creditTotal = ( function (){
     let total = 0;
-
 
     for(var i = 0; i < selectedList.length; i++){
       total += Number(selectedList[i].centre_course_credits);
     }
 
+  return total; } ) ();
 
-    return total; } ) ();
   return (
-    
+
     <div>
-      {/* <div className = "sticky">
-      <div className="accordion borderless " data-accordion-open-text = "Click to Open" data-accordion-close-text = "Click to Close">
-        
-        <button className="accordion_button btn full sticky_space" >
-          
-          <span className = "accordion_button-text left_pos"><b> Saved Courses</b><span className="fix_count_size">{creditTotal == 0 ? null : " (" + creditTotal + ")"}</span></span>
-              <span className = "accordion_button-text right_pos"><svg className = "accordion_icon saved_course_button" xmlns="http://www.w3.org/2000/svg" viewBox=" 0 0 30 30">
-                <path className = "accordion_icon-path accordion_icon-path--horizontal" d = "M27.5 17.4h-25C1.2 17.4.1 16.3.1 15s1.1-2.4 2.4-2.4h25c1.3 0 2.4 1.1 2.4 2.4s-1.1 2.4-2.4 2.4z"></path>
-                <path className ="accordion__icon-path accordion__icon-path--vertical" d="M14.5 29.9c-1.3 0-2.4-1.1-2.4-2.4v-25c0-1.3 1.1-2.4 2.4-2.4s2.4 1.1 2.4 2.4v25c0 1.3-1.1 2.4-2.4 2.4z"></path>
-              </svg></span>
-              
+      <div className = "sticky">
+      {/* <div className="grid-container full">
+      <div className="grid-container "> */}
+      <div className={accordionExpanded ? 'accordion accordion--open' : 'accordion'} data-accordion-open-text = "Click to Open" data-accordion-close-text = "Click to Close">
+        {/* Code for the drop down button for the saved list */}
+        <button className="accordion__button btn" aria-expanded={accordionExpanded ? 'true' : 'false'} onClick={() => setAccordionExpanded(!accordionExpanded)}>
 
-              </button>
-          <div className="accordion_content wysiwyg scrollable_table">
-          {showList ? <CourseTable isSelected={true} /> : null}
-          </div>  
-        
-          
-        
-        
-      </div>
-     
-      </div>
+          <span className = "accordion__button-text"><b> Saved Courses</b><span className="fix_count_size">{creditTotal == 0 ? null : " (" + creditTotal + ")"}</span></span>
+          <svg className="accordion__icon" xmlns="http://www.w3.org/2000/svg" viewBox=" 0 0 30 30">
+            <path className = "accordion__icon-path accordion__icon-path--horizontal" d = "M27.5 17.4h-25C1.2 17.4.1 16.3.1 15s1.1-2.4 2.4-2.4h25c1.3 0 2.4 1.1 2.4 2.4s-1.1 2.4-2.4 2.4z"></path>
+            <path className ="accordion__icon-path accordion__icon-path--vertical" d="M14.5 29.9c-1.3 0-2.4-1.1-2.4-2.4v-25c0-1.3 1.1-2.4 2.4-2.4s2.4 1.1 2.4 2.4v25c0 1.3-1.1 2.4-2.4 2.4z"></path>
+          </svg>
 
-      */}
+         </button>
+            {/* Determines whether to show the list or not depending on if the button
+            is pressed */}
+          <div ref={accordionContentRef} className="accordion__content wysiwyg">
+            <CourseTable isSelected={true} />
+          </div>
 
 
-      <div className="sticky">
-      <div class={accorChange ? "accordion" : "accordion--open"} data-accordion-open-text="Click to Open" data-accordion-close-text="Click to Close">
-
-        <button class="accordion__button btn sticky_space" onClick={clicked} aria-expanded =  {accorChange}>
-                <span class="show-for-sr"></span>
-                <span class="accordion__button-text"><b> Saved Courses</b><span className="fix_count_size">{creditTotal == 0 ? null : " (" + creditTotal + ")"}</span></span>
-                <svg class="accordion__icon" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 30 30"><path class="accordion__icon-path accordion__icon-path--horizontal" d="M27.5 17.4h-25C1.2 17.4.1 16.3.1 15s1.1-2.4 2.4-2.4h25c1.3 0 2.4 1.1 2.4 2.4s-1.1 2.4-2.4 2.4z"/><path class="accordion__icon-path accordion__icon-path--vertical" d="M14.5 29.9c-1.3 0-2.4-1.1-2.4-2.4v-25c0-1.3 1.1-2.4 2.4-2.4s2.4 1.1 2.4 2.4v25c0 1.3-1.1 2.4-2.4 2.4z"/></svg>
-        </button>
-        <div class="accordion__content wysiwyg backgroundFormatting" style={accorChange ? {display:"block", transitionTimingFunction : "ease-in-out"} : {display:"none"}}>
-        
-          {showList ? <CourseTable isSelected={true} /> : null}
-        </div>
 
       </div>
+      {/* </div>
+      </div> */}
       </div>
+
+
 
 
 
@@ -92,13 +138,15 @@ export default function TransferCredits() {
           <div>
           {/* Institution's courses*/}
             <div className="container2">
-              <button
-                className="button standard_button"
+              <p>
+                <button
+                className="btn"
                 type="button"
                 onClick={() => setCurrentInstitution("")}
               >
                 Back
               </button>
+              </p>
               <h2> {currentInstitution} Courses </h2>
 
               <p>
@@ -112,15 +160,17 @@ export default function TransferCredits() {
               <div className="scrollable_table">
                 <CourseTable isSelected={false} />
               </div>
-                <h2> Don't See Your Course Here? </h2>
-                <p>
-                  Fill out the form below to request transfer credit for it!
-                </p>
-                <div className = "container2">
-                <CourseRequestForm />
-                </div>
+
+              {/*<h2> Don't See Your Course Here? </h2>*/}
+              {/*<p>*/}
+              {/*  Fill out the form to request transfer credit for it!*/}
+              {/*</p>*/}
+              {/*<p>*/}
+              {/*  <a className={"btn"} href={"/transfer-credit-form"} target={"_blank"}>Request Transfer Credit</a>*/}
+              {/*</p>*/}
             </div>
             </div>
+
         </div>
         ) : (
           <>
