@@ -163,6 +163,10 @@ td {
 
 
 /*formatting for the stick content*/
+.site-header--scroll-up + .page-wrapper .sticky {
+    top: 120px;
+}
+
 .sticky {
   position: -webkit-sticky;
   position: sticky !important;
@@ -170,6 +174,7 @@ td {
   margin-bottom: 0;
   margin-top: 0;
   z-index: 5;
+  transition: top 150ms cubic-bezier(0.42,0.08,0.06,0.98);
 }
 .parent_sticky {
   position: -webkit-sticky;
@@ -214,8 +219,8 @@ input[type=submit]{
   color: black;
 }
 
-.accordion_button .wysiwyg {
-
+.accordion_button {
+    font-family: kapra-neue-semibold-expanded,sans-serif;
 }
 
 .accordion {
@@ -268,4 +273,12 @@ input[type=submit]{
 .form-item [type='checkbox']+label:before {
     top: -1px;
     left: -1.5em;
+}
+
+.general-page-max__content {
+    max-width: 1300px;
+}
+
+#school-search {
+    margin-bottom: 1rem;
 }
