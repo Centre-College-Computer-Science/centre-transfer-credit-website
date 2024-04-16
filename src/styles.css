@@ -269,6 +269,7 @@ input[type=submit]{
 
 .right_pos{
   position: relative;
+  float: right;
 }
 .left_pos{
   float: left;
@@ -301,3 +302,11 @@ input[type=submit]{
 .backgroundFormatting{
   background-color: white;
 }
+
+.tabbedMargin {
+  margin-left: 40px;
+}
+
+/* .tab {
+  tab-size: 4; /* for e.g: value = 2
+} */
