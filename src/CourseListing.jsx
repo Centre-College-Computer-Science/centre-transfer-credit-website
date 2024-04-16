@@ -11,6 +11,7 @@ export default function CourseListing(props) {
   const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
   const charactersLength = characters.length;
   let randomKey = '';
+  let length = 6;
   for (let i = 0; i < length; i++) {
     randomKey += characters.charAt(Math.floor(Math.random() * charactersLength));
   }
@@ -31,7 +32,7 @@ export default function CourseListing(props) {
           checked={course.checked}
           onChange={(e) => toggleSelected(course, e.target.checked)}
         />
-         <label for={course.ri_courseTitle} dangerouslySetInnerHTML={{__html: '&nbsp;'}}></label>
+         <label for={course.ri_courseTitle + '_' + randomKey} dangerouslySetInnerHTML={{__html: '&nbsp;'}}></label>
       </td>
     </tr>
   );
