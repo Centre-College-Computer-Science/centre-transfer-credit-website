@@ -8,6 +8,12 @@ export default function CourseListing(props) {
   let course = props.details;
   let context = useContext(LevelContext);
   let toggleSelected = context.toggleSelected;
+  const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+  const charactersLength = characters.length;
+  let randomKey = '';
+  for (let i = 0; i < length; i++) {
+    randomKey += characters.charAt(Math.floor(Math.random() * charactersLength));
+  }
 
   return (
     <tr className="centered">
@@ -20,8 +26,8 @@ export default function CourseListing(props) {
         // creates a checkbox that toggles whether the course is checked
         //(and therefore added to the saved courses list)
           type="checkbox"
-          id={course.ri_courseTitle}
-          name={'checkbox[' + course.ri_courseTitle + ']'}
+          id={course.ri_courseTitle + '_' + randomKey}
+          name={'checkbox[' + course.ri_courseTitle + '_' + randomKey + ']'}
           checked={course.checked}
           onChange={(e) => toggleSelected(course, e.target.checked)}
         />
