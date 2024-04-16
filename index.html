@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="oho-js">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
@@ -10,5 +10,22 @@
   <body>
     <div id="root"></div>
     <script type="module" src="./src/main.jsx"></script>
+
+    <script>
+      function addCss(fileName) {
+
+        var head = document.head;
+        var link = document.createElement("link");
+
+        link.type = "text/css";
+        link.rel = "stylesheet";
+        link.href = fileName;
+
+        head.prepend(link);
+      }
+
+      addCss('https://www.centre.edu/themes/custom/centre_college/assets/css/theme.css');
+    </script>
+
   </body>
 </html>

@@ -9,7 +9,7 @@ export default function CourseRequestForm(props) {
     const [department, setDepartment] = useState("AAS");
 
     const handleSubmit = (e) => {
-        // Prevent the whole page from being reset (and thus kicking 
+        // Prevent the whole page from being reset (and thus kicking
         // the user out of the instituion they've selected
         e.preventDefault();
 
@@ -25,25 +25,25 @@ export default function CourseRequestForm(props) {
 
     const handleFile = (e) => {
         const holder = e.target.files[0];
-    
+
         // Ensure the uploaded file is a PDF
         if (holder.type != "application/pdf") {
           alert("Please enter a PDF");
-    
+
           e.target.value = "";
         } else {
           setSyllabusFile(holder);
         }
-      };    
+      };
 
     // Creates a form with three fields (course name: text, course syllabus: file, potential department: select)
     // and a submit button
     return (
-        <form onSubmit={handleSubmit}>
+        <form class={"webform"} onSubmit={handleSubmit}>
             {/* Course name */}
             <label>
-                Enter name of course to transfer in:  
-                <input 
+                Enter name of course to transfer in:
+                <input
                     type = "text"
                     value = {externalCourse}
                     onChange = {(e) => setExternalCourse(e.target.value)}
@@ -51,16 +51,16 @@ export default function CourseRequestForm(props) {
             </label>
             {/* Course syllabus upload */}
             <label>
-                Upload syllabus:  
-                <input 
+                Upload syllabus:
+                <input
                     type = "file"
                     onChange = {handleFile}
                 />
             </label>
             {/* Potential department select (defaults to AAS, as defined in the department useState above) */}
             <label>
-                Choose department the course would belong under: 
-                <select 
+                Choose department the course would belong under:
+                <select
                     value = {department}
                     onChange = {(e) => setDepartment(e.target.value)}
                 >

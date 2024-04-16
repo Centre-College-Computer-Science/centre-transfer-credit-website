@@ -1,5 +1,4 @@
 import "./styles.css";
-import "./theme.css";
 import { useEffect, useState } from "react";
 import { HashRouter, Routes, Route } from "react-router-dom";
 import { LevelContext } from "./LevelContext";
@@ -14,6 +13,7 @@ export default function App() {
     useFetchCourses();
   const [selectedList, setSelectedList] = useState([]);
   const [currentInstitution, setCurrentInstitution] = useState("");
+  const [accordionExpanded, setAccordionExpanded] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
 
   // Update selected list whenever courseList changes
@@ -43,36 +43,41 @@ export default function App() {
         setSelectedList,
         currentInstitution,
         setCurrentInstitution,
+        accordionExpanded,
+        setAccordionExpanded,
         searchTerm,
         setSearchTerm,
         toggleSelected,
       }}
     >
       <div className="container  parent_sticky">
-        <div className="parent_content"> 
+        <div className="parent_content">
         <p>
           Please use this website to verify which courses transfer across
           universities. If your original credit was given by a traditional
-          college or university, please see the transfer credit page. If your credit 
+          college or university, please see the transfer credit page. If your credit
           was awarded through an Advanced Placement (AP) Exam, please see the AP Credits page.
-          For current students, please see the Study Abroad page to view the past accepted 
+          For current students, please see the Study Abroad page to view the past accepted
           study abroad transfer credits.
+
+          Dual Credit Policy:
+          AP Credit Policy:
         </p>
-    
+
         <HashRouter>
-          
+
           <Routes>
-            
+
             <Route path="/" element={<Layout />}>
               <Route index element={<TransferCredits />} />
               <Route path="APCredits" element={<APCredits />} />
               <Route path="StudyAbroad" element={<StudyAbroad />} />
             </Route>
-            
+
           </Routes>
-          
+
         </HashRouter>
-      
+
       </div>
       </div>
     </LevelContext.Provider>
