@@ -1,7 +1,7 @@
 import { Outlet, Link } from "react-router-dom";
 import styled from "styled-components";
 
-//regulates styling for the navigation bar 
+//regulates styling for the navigation bar
 const StyledLink = styled(Link)`
   text-align: center;
   color: #051c2c;
@@ -22,13 +22,13 @@ export default function Layout() {
         <nav className="navigationInLine">
           <ul className="spaced_out positionInRow">
             <li className="nav--li">
-              <StyledLink to="/">Transfer Credits</StyledLink>
+              <StyledLink to="/" className={"link-arrow"}>Transfer Credits</StyledLink>
             </li>
             <li className="nav--li">
-              <StyledLink to="/APCredits">AP Credits</StyledLink>
+              <StyledLink to="/APCredits" className={"link-arrow"}>AP Credits</StyledLink>
             </li>
             <li className="nav--li">
-              <StyledLink to="/StudyAbroad">Study Abroad</StyledLink>
+              <StyledLink to="/StudyAbroad" className={"link-arrow"}>Study Abroad</StyledLink>
             </li>
           </ul>
         </nav>
