@@ -53,19 +53,7 @@ export default function App() {
       <div className="container  parent_sticky">
         <div className="parent_content">
 
-        <HashRouter>
-
-          <Routes>
-
-            <Route path="/" element={<Layout />}>
-              <Route index element={<TransferCredits />} />
-              <Route path="APCredits" element={<APCredits />} />
-              <Route path="StudyAbroad" element={<StudyAbroad />} />
-            </Route>
-
-          </Routes>
-
-        </HashRouter>
+        <TransferCredits />
 
       </div>
       </div>
