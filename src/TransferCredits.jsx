@@ -106,7 +106,7 @@ export default function TransferCredits() {
         {/* Code for the drop down button for the saved list */}
         <button className="accordion__button btn" aria-expanded={accordionExpanded ? 'true' : 'false'} onClick={() => setAccordionExpanded(!accordionExpanded)}>
 
-          <span className = "accordion__button-text"><b> Saved Courses</b><span className="fix_count_size">{creditTotal == 0 ? null : " (" + creditTotal + ")"}</span></span>
+          <span className = "accordion__button-text"><b> Saved Credits</b><span className="fix_count_size">{creditTotal == 0 ? null : " (" + creditTotal + ")"}</span></span>
           <svg className="accordion__icon" xmlns="http://www.w3.org/2000/svg" viewBox=" 0 0 30 30">
             <path className = "accordion__icon-path accordion__icon-path--horizontal" d = "M27.5 17.4h-25C1.2 17.4.1 16.3.1 15s1.1-2.4 2.4-2.4h25c1.3 0 2.4 1.1 2.4 2.4s-1.1 2.4-2.4 2.4z"></path>
             <path className ="accordion__icon-path accordion__icon-path--vertical" d="M14.5 29.9c-1.3 0-2.4-1.1-2.4-2.4v-25c0-1.3 1.1-2.4 2.4-2.4s2.4 1.1 2.4 2.4v25c0 1.3-1.1 2.4-2.4 2.4z"></path>
