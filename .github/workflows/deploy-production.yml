@@ -53,7 +53,7 @@ jobs:
         run: |
           HTML_CONTENT=$(awk '{printf "%s!!!n!!!", $0}' ./dist/embed.html)
           HTML_CONTENT=$(echo -E $HTML_CONTENT | sed -e 's#\\#\\\\#g' -e 's#"#\\"#g' -e 's#\t#\\t#g' -e 's#/#\\/#g' -e 's#\x1F#\\u001F#g' -e 's#\x1E#\\u001E#g' -e 's#!!!n!!!#\\n#g')
-          echo -nE '{"body": [{"format": "unrestricted_html","value": "' > temp_html.txt
+          echo -nE '{"field_additional_scripts": [{"format": "unrestricted_html","value": "' > temp_html.txt
           echo -nE "${HTML_CONTENT}" >> temp_html.txt
           echo -nE '"}],"type": [{"target_id": "page"}]}' >> temp_html.txt
           AUTH=$(echo -n "$DRUPAL_USERNAME:$DRUPAL_PASSWORD" | base64)
